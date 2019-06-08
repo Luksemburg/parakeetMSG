@@ -1,3 +1,3 @@
 # parakeetMSG
-simple messenger
-in progress
+- simple messenger
+- in progress
