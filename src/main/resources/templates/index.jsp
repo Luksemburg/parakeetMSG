@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- <html xmlns:th="http://www.thymeleaf.org"> 
 <mvc:resources mapping="/resources/**" location="/resources/" />
 
@@ -19,10 +19,10 @@
 				position: relative;
 			}
 		</style>
+		
 	</head>
 	
 	<body>
-		
 	
 		<table cellspasing="0" cellpadding="5">
 			<tr>
@@ -36,15 +36,16 @@
 					
 
 						<form action="controller" method="POST">
-							<h3 align="center"><font color="LimeGreen">LogIn / Registration</font></h3><br><br>
-							<font color="LimeGreen">Login: &#8194;&#8194;&nbsp;&nbsp;<input size="39" type="text" name="login" 
-										 required /></font><br><br>
+							<h3 align="center"><font color="LimeGreen">LogIn / Registration</font></h3>
+							<p>Use letters and numbers (3-20)</p>
+							<font color="LimeGreen">Login: &#8194;&#8194;&nbsp;&nbsp;<input size="39" type="text" id="login" name="login" 
+										pattern="[0-9a-zA-Z]{3,20}" required /></font><br><br>
 										 
-							<font color="LimeGreen">Password: <input size="39.5" type="password" name="pass" required /></font><br><br>
+							<font color="LimeGreen">Password: <input size="39.5" type="password" name="pass" pattern="[0-9a-zA-Z]{3,20}" required /></font><br><br>
 							
 							<div style="text-align:right">
 							<button style="vertical-align:middle" name="signup" value="signup"> 
-								<font color="LimeGreen" size="5">Send!</font>
+								<font color="LimeGreen" size="5">1-click reg / logIN!</font>
 								<img src="/portal_content/img/icon.png" style="vertical-align:middle" width="30" height="30"/>							
 							</button><br><br>
 							</div>
@@ -53,21 +54,25 @@
 						<h4 align="center">
 							Terms of Use: 
 						</h4>
-						<p> ========= ============ ========= ========= ======== ============ ========== ========= ======= ======== ===========
-						=========== ======== ================= ========= ========== =========== ====== ======== ======== ========== =========
-						========== ========== =========== ======= ========== ========= ========= ====== ====== ========== ====================
+						<p> ParakeetMSG is training project. It allows just write messages, registration is pretty simple. Now this project 
+						is on testing stage. Android client is on development stage for more comfortable correspondence between users.	In future 
+						project may be upgraded
 						</p>
-						<p> ========= ============ ========= ========= ======== ============ ========== ========= ======= ======== ===========
-						=========== ======== ================= ========= ========== =========== ====== ======== ======== ========== =========
-						========== ========== =========== ======= ========== ========= ========= ====== ====== ========== ====================
+						<p> Creator and administrator of this project is not responsible for:
+							<ul>
+								<li>Actions of it`s users</li>
+								<li>Information leak</li>
+								<li>Unstable work</li>
+								<li>Incorrect displaying of information</li>
+								<li>Incorrect  planetary motion</li>
+								<li>Anything else in this project and in the world</li>
+							</ul>
 						</p>
-						<p> ========= ============ ========= ========= ======== ============ ========== ========= ======= ======== ===========
-						=========== ======== ================= ========= ========== =========== ====== ======== ======== ========== =========
-						========== ========== =========== ======= ========== ========= ========= ====== ====== ========== ====================
-						</p>
+						
 				</td>
 				
 			</tr>
 		</table>
+		
 	</body>
 </html>

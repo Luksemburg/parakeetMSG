@@ -58,6 +58,7 @@ public class AdapterDB implements DBHelper {
 	public List<String> getLogins(String host) {
 		
 		List<String> res = new ArrayList<String>();
+		String temp = "";
 		
 		try {
 			Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
@@ -68,10 +69,17 @@ public class AdapterDB implements DBHelper {
 		try {
 			Connection connect = DriverManager.getConnection(url, user, pass);
 			Statement st = connect.createStatement();
-			ResultSet rs = st.executeQuery("SELECT DISTINCT client_login FROM messages WHERE host_login = '" + host + "'");
+			ResultSet rs = st.executeQuery("(SELECT client_login, data_time FROM messages WHERE " + 
+												"host_login = '" + host + "' GROUP BY client_login, data_time) UNION "
+														+ " (SELECT host_login, data_time FROM messages WHERE client_login = '" 
+														+ host + "' GROUP BY host_login, data_time)"
+														+ " ORDER BY data_time DESC");
 			
 			while(rs.next()) {
+				if(!temp.contains(rs.getString(1) + " ")) {
 					res.add(rs.getString(1));
+					temp += rs.getString(1) + " ";
+				}
 					//log.info("RESULT SET: " + rs.getString(1));
 			}
 			
@@ -217,24 +225,253 @@ public class AdapterDB implements DBHelper {
 			int n = st.executeUpdate("INSERT INTO messages (msg, data_time, client_login, host_login) VALUES ('" + 
 					ch.getMessage() + "' , '" + ch.getDateTime() + "' , '"  + ch.getClient() + "' , '" + ch.getHost() + "')");						
 
-			//log.info("Writing success! " + n + " string was added!");
+			log.info("Writing success! " + n + " string was added!");
 			
 			st.close();
 			connect.close();
 			
-			//log.info("writeChat success!");			
+			log.info("writeChat success!");			
 			
 		}catch(Exception e) {
 			e.printStackTrace();
-			//log.info("writeChat false!");
+			log.info("writeChat false!");
 		}
 
 	}
-
-/*	@Override
-	public void setClient(String client) {
-		this.client = client;
+	
+	@Override
+	public int countMsg(String login) {
 		
-	}*/
+		int n = -1;
+		
+		try {
+			Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement st = connect.createStatement();
+			
+			ResultSet rs = st.executeQuery("SELECT COUNT(*) AS quantity FROM messages WHERE client_login = '" + login + "'");
+			
+			while(rs.next()) {
+				String temp = rs.getString("quantity");
+				n = Integer.parseInt(temp);
+			}
+			
+			rs.close();
+			st.close();
+			connect.close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();			
+		}		
+			
+		return n;
+	}
+	
+	@Override
+	public int countMsg(String target, String client) {
+		
+		int n = -1;
+		
+		try {
+			Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement st = connect.createStatement();
+			
+			//ResultSet rs = st.executeQuery("SELECT COUNT(*) AS quantity FROM messages WHERE (client_login = '" + client + "' AND host_login = '" + target + "' ) OR ( " + 
+			//															"client_login = '" + target + "' AND host_login = '" + client + "')");
+		
+			ResultSet rs = st.executeQuery("SELECT COUNT(*) AS quantity FROM messages WHERE client_login = '" + target + "' AND host_login = '" + client + "'");
+			
+			while(rs.next()) {
+				String temp = rs.getString("quantity");
+				n = Integer.parseInt(temp);
+			}
+			
+			rs.close();
+			st.close();
+			connect.close();
+			
+			//log.info("countMsg success!");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			//log.info("countMsg false!");
+		}
+		
+		//log.info("countMsg: n = " + n);
+			
+		return n;		
+	}
+
+	@Override
+	public void toZero(String host, String client) {
+		try {
+			Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}		
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement st = connect.createStatement();			
+			
+			st.executeUpdate("UPDATE unread SET newmsg = '" + 0 + "' WHERE client = '" + host + "' AND host = '" + client + "'");
+						
+			st.close();
+			connect.close();
+						
+		}catch(Exception e) {
+			e.printStackTrace();			
+		}		
+	}
+
+	@Override
+	public int getUnread(String host, String client) {
+		
+		try {
+			Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}		
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement st = connect.createStatement();			
+			
+			ResultSet rs = st.executeQuery("SELECT newmsg FROM unread WHERE client = '" + host + "' AND host = '" + client + "'");
+			
+			if(rs.next()) {
+				return rs.getInt(1);
+			}		
+			
+			rs.close();
+			st.close();
+			connect.close();
+						
+		}catch(Exception e) {
+			e.printStackTrace();			
+		}
+		
+		return 0;
+	}
+
+	@Override
+	public void setUnread(String host, String client, int quantity) {
+		try {
+			Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}		
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement st = connect.createStatement();			
+			
+			st.executeUpdate("INSERT INTO unread (newmsg, client, host) VALUES ('" + quantity + "' , '" + host + "' , '" + client + "')");
+						
+			st.close();
+			connect.close();
+						
+		}catch(Exception e) {
+			e.printStackTrace();			
+		}
+	}
+
+	@Override
+	public void editUnread(String host, String client, int quantity) {
+		try {
+			Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}		
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement st = connect.createStatement();			
+			
+			st.executeUpdate("UPDATE unread SET newmsg = '" + quantity + "' WHERE client = '" + host + "' AND host = '" + client + "'");
+						
+			st.close();
+			connect.close();
+						
+		}catch(Exception e) {
+			e.printStackTrace();			
+		}
+	}
+
+	@Override
+	public boolean isInUnread(String host, String client) {
+		
+		try {
+			Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}		
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement st = connect.createStatement();			
+			
+			ResultSet rs = st.executeQuery("SELECT newmsg FROM unread WHERE client = '" + host + "' AND host = '" + client + "'");
+			
+			if(rs.next()) {
+				return true;
+			}		
+			
+			rs.close();
+			st.close();
+			connect.close();
+						
+		}catch(Exception e) {
+			e.printStackTrace();			
+		}
+
+		return false;
+	}
+	
+	@Override
+	public List<String> searchLogins(String pattern) {
+	
+		List<String> res = new ArrayList<String>();
+		
+		try {
+			Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement st = connect.createStatement();
+			ResultSet rs = st.executeQuery("SELECT DISTINCT name FROM logins");
+			
+			while(rs.next()) {
+				String temp = rs.getString(1);
+				
+				if(!pattern.equalsIgnoreCase("") && temp.contains(pattern)) {
+					res.add(temp);
+				}
+			}			
+			
+			rs.close();
+			st.close();
+			connect.close();					
+			
+		}catch(Exception e) {
+			e.printStackTrace();			
+		}
+		
+		return res;		
+	}
 
 }

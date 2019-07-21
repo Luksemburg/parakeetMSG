@@ -36,8 +36,23 @@ public class Config {
 		return new DataLogin();
 	}
 	
-/*	@Bean
+	@Bean
+	public ListenerDaemon daemon() {
+		return new Daemon();
+	}
+	
+	@Bean
 	public Chat chat() {
 		return new DataChat();
-	}*/
+	}
+	
+	@Bean
+	public Sender writerhead() {
+		return new WriterHead();
+	}
+	
+	@Bean
+	public DaemonFace daemoncall() {
+		return new DaemonCall();
+	}
 }

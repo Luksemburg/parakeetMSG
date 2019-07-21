@@ -13,12 +13,12 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/setclient")
 public class SetClient extends HttpServlet {
 
+	private static final long serialVersionUID = 4421802362502390625L;
 	private final static Logger log = Logger.getLogger(SetClient.class.getName());
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//HttpSession session = request.getSession();					
-		//session.setAttribute("client", request.getParameter("client"));		
-		//request.getRequestDispatcher("/controller").forward(request, response);
+
+		this.doPost(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,10 +26,6 @@ public class SetClient extends HttpServlet {
 		HttpSession session = request.getSession();					
 		session.setAttribute("client", request.getParameter("client"));		
 		
-		log.info(" =========== SET CLIENT");
-		log.info((String) session.getAttribute("client"));
-		
-		request.getRequestDispatcher("/controller").forward(request, response);
-		//request.getRequestDispatcher("/writerhead").forward(request, response);		
+		request.getRequestDispatcher("/controller").forward(request, response);				
 	}
 }

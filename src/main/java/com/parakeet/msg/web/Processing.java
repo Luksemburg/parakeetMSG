@@ -2,6 +2,7 @@ package com.parakeet.msg.web;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,12 +11,16 @@ import org.springframework.context.ApplicationContext;
 
 public class Processing implements Logic {
 	private static ApplicationContext contex;
-	private static String login;
-	private static String pass;
+	private  String login;					//try to delete 'static'
+	private  String pass;
 	
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private static String client;
+	
+	private final static Logger log = Logger.getLogger(Processing.class.getName());
+	
+	private DaemonFace dFace;
 	
 	Processing(){
 	}	
@@ -24,24 +29,37 @@ public class Processing implements Logic {
 		Authentication auth = contex.getBean("authent", Authentication.class);
 		DBHelper dbHelper = contex.getBean("db_helper", DBHelper.class);
 		
-		//List<String> lns = new ArrayList<String>();		
-		//List<Chat> chs = new ArrayList<Chat>();
-		
-		List<String> lns = dbHelper.getLogins();											//sort by data
-		
+		List<String> lns = dbHelper.getLogins();		
 		
 		if(!auth.isNew(login, lns)) {			
 			if(auth.verify(pass, dbHelper.getPass(login))) {
 				
-				List<Chat> chs = dbHelper.readChat(login, client);				//send all lns in renderer in cycle
-				//dbHelper.setClient(this.client);
-																		//
-				LoginRenderer lr = contex.getBean("renderer", LoginRenderer.class);			//+++++
-				lr.setLogins(dbHelper.getLogins(login));															//		
-				lr.setChats(chs);															//
-				lr.setHttpParam(request, response);												//
-				lr.setDBHelper(dbHelper);
-				lr.render();																//
+				List<Chat> chs = dbHelper.readChat(login, client);				
+									
+				LoginRenderer lr = contex.getBean("renderer", LoginRenderer.class);	
+				
+				lr.setLogins(dbHelper.getLogins(login));
+				lr.setContext(contex);
+				lr.setChats(chs);																					
+				lr.setDBHelper(dbHelper);										
+				lr.setHttpParam(request, response);
+				
+				dFace = contex.getBean("daemoncall", DaemonFace.class);
+				dFace.setContext(contex);
+				dFace.setHelp(dbHelper);
+				dFace.setRender(lr);
+				dFace.setHttpParam(request, response);
+				
+				if(lr != null) {
+					request.setAttribute("r", lr);
+				}
+				
+				lr.render();	
+				
+				log.info("Processing After Render!");
+				
+
+				
 			}else {
 				Reject reject = contex.getBean("reject", Reject.class);						
 				reject.show(request, response);																
