@@ -21,9 +21,13 @@ public class Ava extends HttpServlet {
 	private static final long serialVersionUID = 4995666542398735736L;
 	private final static Logger log = Logger.getLogger(Ava.class.getName());
 	
-	private final static String url = "jdbc:postgresql://localhost:5432/parakeetdb?serverTimezone=Europe/Moscow&useSSL=false";
-	private final static String user = "postgres";
-	private final static String pass = "123456";
+	//private final static String url = "jdbc:postgresql://localhost:5432/parakeetdb?serverTimezone=Europe/Moscow&useSSL=false";
+	//private final static String user = "postgres";
+	//private final static String pass = "123456";
+	
+	private final static String url = "postgres://euvwufgzacvxmw:cd0d1bbbf84161d30cb52cab4ad733a0c53a675611e2940329fba1016a8c3c57@ec2-54-217-219-235.eu-west-1.compute.amazonaws.com:5432/d8m9mskmbeol84";
+	private final static String user = "euvwufgzacvxmw";
+	private final static String pass = "cd0d1bbbf84161d30cb52cab4ad733a0c53a675611e2940329fba1016a8c3c57";
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
