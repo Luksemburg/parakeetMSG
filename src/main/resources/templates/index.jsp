@@ -27,8 +27,8 @@
 		<table cellspasing="0" cellpadding="5">
 			<tr>
 				<td width="900" valign="top">				
-					<p><img src="/portal_content/img/title.png" width="500" height="100" alt="Parakeet MSG" /></p>						
-					<p><img src="/portal_content/img/123.png" width="800" height="800"	alt="[logo]" /></p>
+					<p><img src="portal_content/img/title.png" width="500" height="100" alt="Parakeet MSG" /></p>						
+					<p><img src="portal_content/img/123.png" width="800" height="800"	alt="[logo]" /></p>
 				</td>
 				
 				
@@ -46,7 +46,7 @@
 							<div style="text-align:right">
 							<button style="vertical-align:middle" name="signup" value="signup"> 
 								<font color="LimeGreen" size="5">1-click reg / logIN!</font>
-								<img src="/portal_content/img/icon.png" style="vertical-align:middle" width="30" height="30"/>							
+								<img src="portal_content/img/icon.png" style="vertical-align:middle" width="30" height="30"/>							
 							</button><br><br>
 							</div>
 						</form>	
