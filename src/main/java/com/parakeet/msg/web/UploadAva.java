@@ -31,7 +31,7 @@ public class UploadAva extends HttpServlet {
 	//private final static String user = "postgres";
 	//private final static String pass = "123456";
 	
-	private final static String url = "postgres://euvwufgzacvxmw:cd0d1bbbf84161d30cb52cab4ad733a0c53a675611e2940329fba1016a8c3c57@ec2-54-217-219-235.eu-west-1.compute.amazonaws.com:5432/d8m9mskmbeol84";
+	private final static String url = "jdbc:postgres://euvwufgzacvxmw:cd0d1bbbf84161d30cb52cab4ad733a0c53a675611e2940329fba1016a8c3c57@ec2-54-217-219-235.eu-west-1.compute.amazonaws.com:5432/d8m9mskmbeol84";
 	private final static String user = "euvwufgzacvxmw";
 	private final static String pass = "cd0d1bbbf84161d30cb52cab4ad733a0c53a675611e2940329fba1016a8c3c57";
 	
