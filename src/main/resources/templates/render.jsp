@@ -12,8 +12,8 @@
 	<head>
 		<meta charset="utf-8" />
         <title>Parakeet: Chats</title>	
-		<script src="portal_content/js/jquery-3.4.1.min.js"></script>
-		<audio id="myAudio" src="portal_content/sound/02031.mp3"></audio>
+		<script src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/js/jquery-3.4.1.min.js"></script>
+		<audio id="myAudio" src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3"></audio>
 		
 	</head>
 	
@@ -22,8 +22,8 @@
 		<table cellspasing="0" cellpadding="5">
 			<tr>		
 				<td>
-					<p><img src="portal_content/img/123.png" width="50" height="50"	alt="[logo]" />
-					<img src="portal_content/img/title.png" width="250" height="50" alt="Parakeet MSG" /></p>
+					<p><img src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/123.png" width="50" height="50"	alt="[logo]" />
+					<img src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/title.png" width="250" height="50" alt="Parakeet MSG" /></p>
 				</td>
 				
 				<td bgcolor="AliceBlue">												
@@ -240,7 +240,7 @@
 									<textarea name="msg" id="msg33" cols="90" rows="5"></textarea>				
 									<!--<p><input type="submit"  value="Send Message" /></p>--><br>
 									<button style="vertical-align:middle" name="sendmsg" value="sendmsg" onclick="fun();">
-										<img src="portal_content/img/icon.png" style="vertical-align:middle" width="30" height="30"/>	
+										<img src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon.png" style="vertical-align:middle" width="30" height="30"/>	
 										<font color="LimeGreen" size="5">Send Message!</font>
 									</button>
 								</div>	 
