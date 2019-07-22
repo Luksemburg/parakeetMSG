@@ -39,7 +39,7 @@
 							<h3 align="center"><font color="LimeGreen">LogIn / Registration</font></h3>
 							<p>Use letters and numbers (3-20)</p>
 							<font color="LimeGreen">Login: &#8194;&#8194;&nbsp;&nbsp;<input size="39" type="text" id="login" name="login" 
-										pattern="[0-9a-zA-Z]{3,20}" required /></font><br><br>
+										 required /></font><br><br>
 										 
 							<font color="LimeGreen">Password: <input size="39.5" type="password" name="pass" pattern="[0-9a-zA-Z]{3,20}" required /></font><br><br>
 							
