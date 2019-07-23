@@ -171,7 +171,7 @@
 							
 							$(document).ready(function(){
 								
-								//document.getElementById("search").focus();
+								document.getElementById("msg33").focus();
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
 								$.ajax({
@@ -188,6 +188,7 @@
 									},*/
 									success:function(res){
 											window.location.replace("controller");	
+											var audio = document.getElementById("myAudio").play();
 											return;
 										},
 									error: function(){
