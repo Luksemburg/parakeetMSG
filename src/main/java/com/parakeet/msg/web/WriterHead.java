@@ -80,10 +80,12 @@ public class WriterHead extends HttpServlet implements Sender {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-		session = request.getSession();	
+		session = request.getSession();			
 		
-		this.message = request.getParameter("msg");				
-		this.write();		
+		this.message = request.getParameter("msg");	
+		if(this.message != null && this.message != "") {
+			this.write();		
+		}
 		
 		String redirectURL = "controller";		
 		Map<String, String> data = new HashMap<>();
