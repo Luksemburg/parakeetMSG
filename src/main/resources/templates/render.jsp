@@ -177,19 +177,17 @@
 								$.ajax({
 									type: 'POST',									
 									url: "daemoncall",
-									
+									cache: false, 
 									success: function(responseJson) {										
 										    if (responseJson.redirect) {
 												//window.location = responseJson.redirect;
 												window.location.replace("controller");
 												var audio = document.getElementById("myAudio").play();
-												return;
+												
 											}
 									},
 									
-									error: function(){
-										//alert("error!");
-									}
+									return false;
 									
 								});
 							});
