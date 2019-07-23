@@ -188,7 +188,7 @@
 									},*/
 									success:function(res){
 											window.location.replace("controller");	
-											var audio = document.getElementById("myAudio").play();
+											//var audio = document.getElementById("myAudio").play();
 											return;
 										},
 									error: function(){
