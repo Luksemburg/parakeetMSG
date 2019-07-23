@@ -171,8 +171,8 @@
 							
 							$(document).ready(function(){
 								
-								document.getElementById("search").focus();
-								document.getElementById("search").selectionStart = document.getElementById("search").value.length;
+								//document.getElementById("search").focus();
+								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
 								$.ajax({
 									type: 'POST',									
