@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class IndexController implements ErrorController {
 
-	private static final String PATH = "WEB-INF/classes/templates/error.html";
+	private static final String PATH = "WEB-INF/classes/templates/error.jsp";
 	
 	@RequestMapping(value = PATH)
     public String error() {
