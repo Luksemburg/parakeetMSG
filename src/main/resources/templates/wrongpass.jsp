@@ -13,7 +13,7 @@
 	</head>
 	
 	<body>
-		<p class="cen"><img src="/portal_content/img/wrongpass.png" width="1000" height="350" alt="[wrong pass]" /></p>
+		<p class="cen"><img src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/wrongpass.png" width="1000" height="350" alt="[wrong pass]" /></p>
 		<br><br>
 		
 		<form action="index.html">
@@ -22,7 +22,7 @@
 				<font color="Crimson" size="6">Or such login already exist</font>
 				<br><br>	
 				<button style="vertical-align:middle"> 					
-					<img src="/portal_content/img/icon.png" style="vertical-align:middle" width="30" height="30"/>
+					<img src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon.png" style="vertical-align:middle" width="30" height="30"/>
 					<font color="LimeGreen" size="5">Try Again!</font>
 				</button>						
 				
