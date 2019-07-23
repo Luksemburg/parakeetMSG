@@ -14,6 +14,7 @@
         <title>Parakeet: Chats</title>	
 		<script src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/js/jquery-3.4.1.min.js"></script>
 		<audio id="myAudio" src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3"></audio>
+		<audio id="box" src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/box.mp3"></audio>
 		
 	</head>
 	
@@ -57,7 +58,7 @@
 			<tr>
 				<td  width="370" valign="top" bgcolor="AliceBlue">
 				
-				<div style="overflow:auto; height: 650px;" width="320" >
+				<div style="overflow:auto; height: 400px;" width="320" >
 				
 					<p style="text-align:center; "><input accept-charset="utf-8" type="search" size="50" name="search" id="search" placeholder="Find User... Press 'Enter' to search" value="${patt}" />
 					<div style="text-align:center; " name="drop" id="drop" >
@@ -81,7 +82,7 @@
 					</div>
 						<!-- <input type="submit" value="Go!" name="find" /> --></p>
 						
-						<div style="overflow:auto; text-align:center" width="320" height="500px">
+						<div style="overflow:auto; text-align:center" width="320" height="400px">
 							<%								
 								for(int i = 0; i < ((RenderMSG)request.getAttribute("r")).getLogins().size(); i++){
 									out.println("<form  accept-charset=\"utf-8\" method=\"POST\" action=\"setclient?client=" + ((RenderMSG)request.getAttribute("r")).getLogins().get(i) + "\">");
@@ -108,9 +109,9 @@
 				
 				</td>	
 				
-				<td width="900" valign="top" bgcolor="Snow">			
+				<td valign="top" bgcolor="Snow">			
 				
-					<div id="chat" style="overflow:auto;height: 500px;">	
+					<div id="chat" style="overflow:auto;height: 400px;">	
 						<%
 						
 							int to = ((RenderMSG)request.getAttribute("r")).getChats().size();							
@@ -157,7 +158,7 @@
 										
 										    if (responseJson.redirect) {
 												window.location = responseJson.redirect;
-												
+												document.getElementById("box").play();
 												return;
 											}
 									},
