@@ -57,9 +57,9 @@
 			<tr>
 				<td  width="370" valign="top" bgcolor="AliceBlue">
 				
-				<div style="overflow:auto; height: 750px;" width="320" >
+				<div style="overflow:auto; height: 650px;" width="320" >
 				
-					<p style="text-align:center; "><input accept-charset="utf-8" type="search" size="50" name="search" id="search" placeholder="Find User" value="${patt}" />
+					<p style="text-align:center; "><input accept-charset="utf-8" type="search" size="50" name="search" id="search" placeholder="Find User... Press 'Enter' to search" value="${patt}" />
 					<div style="text-align:center; " name="drop" id="drop" >
 						<%
 							if(session.getAttribute("searchList") != null){
@@ -81,7 +81,7 @@
 					</div>
 						<!-- <input type="submit" value="Go!" name="find" /> --></p>
 						
-						<div style="overflow:auto; text-align:center" width="320" height="600px">
+						<div style="overflow:auto; text-align:center" width="320" height="500px">
 							<%								
 								for(int i = 0; i < ((RenderMSG)request.getAttribute("r")).getLogins().size(); i++){
 									out.println("<form  accept-charset=\"utf-8\" method=\"POST\" action=\"setclient?client=" + ((RenderMSG)request.getAttribute("r")).getLogins().get(i) + "\">");
@@ -110,7 +110,7 @@
 				
 				<td width="900" valign="top" bgcolor="Snow">			
 				
-					<div id="chat" style="overflow:auto;height: 600px;">	
+					<div id="chat" style="overflow:auto;height: 500px;">	
 						<%
 						
 							int to = ((RenderMSG)request.getAttribute("r")).getChats().size();							
@@ -180,7 +180,8 @@
 									
 									success: function(responseJson) {										
 										    if (responseJson.redirect) {
-												window.location = responseJson.redirect;
+												//window.location = responseJson.redirect;
+												window.location.replace("controller");
 												var audio = document.getElementById("myAudio").play();
 												return;
 											}
@@ -193,28 +194,43 @@
 								});
 							});
 							
-							$(function(){								
-								
-								$('#search').keyup(function(){
+							$(function(){
+								$('#search').keyup(function(event){
 								  var Value = $('#search').val();
 								  
-								  $.ajax({																
-									url: "searchuser",	
-									data:{"pattern":document.getElementById("search").value},								
-									
-									cache: false, 
-									success:function(res){
-										window.location.replace("controller");											
-									},
-									
-									error: function(){
-										//alert("error searchuser!");
-									}									
-									
-								  });							  
+								  if (event.keyCode === 13) {
+									  $.ajax({																
+										url: "searchuser",	
+										data:{"pattern":document.getElementById("search").value},								
+										
+										cache: false, 
+										success:function(res){
+											window.location.replace("controller");											
+										},
+										
+										error: function(){
+											//alert("error searchuser!");
+										}																			
+									  });
+								  }
+								  
 								  return false;
 								  
 								});								
+							});	
+							
+							$(function(){
+								var input = document.getElementById("msg33");
+								// Execute a function when the user releases a key on the keyboard
+								input.addEventListener("keyup", function(event) {
+								  // Number 13 is the "Enter" key on the keyboard
+								  if (event.keyCode === 13) {
+									// Cancel the default action, if needed
+									event.preventDefault();
+									// Trigger the button element with a click
+									document.getElementById("sendmsg").click();
+								  }
+								}); 							
 							});	
 						
 					</script>
@@ -239,7 +255,7 @@
 								<div id="msg1" style="text-align:right" >	
 									<textarea name="msg" id="msg33" cols="90" rows="5"></textarea>				
 									<!--<p><input type="submit"  value="Send Message" /></p>--><br>
-									<button style="vertical-align:middle" name="sendmsg" value="sendmsg" onclick="fun();">
+									<button style="vertical-align:middle" id="sendmsg" name="sendmsg" value="sendmsg" onclick="fun();">
 										<img src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon.png" style="vertical-align:middle" width="30" height="30"/>	
 										<font color="LimeGreen" size="5">Send Message!</font>
 									</button>

@@ -27,8 +27,8 @@
 		<table cellspasing="0" cellpadding="5">
 			<tr>
 				<td width="900" valign="top">				
-					<p><img src="/portal_content/img/title.png" width="500" height="100" alt="Parakeet MSG" /></p>						
-					<p><img src="/portal_content/img/123.png" width="800" height="800"	alt="[logo]" /></p>
+					<p><img src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/title.png" width="500" height="100" alt="Parakeet MSG" /></p>						
+					<p><img src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/123.png" width="800" height="800"	alt="[logo]" /></p>
 				</td>
 				
 				
@@ -45,7 +45,7 @@
 							<div style="text-align:center">
 								<button style="vertical-align:middle" name="tochat" value="tochat"> 
 									<font color="LimeGreen" size="5">To Chats!</font>
-									<img src="/portal_content/img/icon.png" style="vertical-align:middle" width="30" height="30"/>							
+									<img src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon.png" style="vertical-align:middle" width="30" height="30"/>							
 								</button><br><br>
 							</div>
 						</form>						
