@@ -183,12 +183,9 @@
 												//window.location = responseJson.redirect;
 												window.location.replace("controller");
 												var audio = document.getElementById("myAudio").play();
-												
+												return;
 											}
 									},
-									
-									return false;
-									
 								});
 							});
 							
