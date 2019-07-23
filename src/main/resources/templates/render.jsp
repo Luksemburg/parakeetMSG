@@ -178,14 +178,21 @@
 									type: 'POST',									
 									url: "daemoncall",
 									cache: false, 
-									success: function(responseJson) {										
+								/*	success: function(responseJson) {										
 										    if (responseJson.redirect) {
 												//window.location = responseJson.redirect;
 												window.location.replace("controller");
 												var audio = document.getElementById("myAudio").play();
 												return;
 											}
-									},
+									},*/
+									success:function(res){
+											window.location.replace("controller");	
+											return;
+										},
+									error: function(){
+											//alert("error searchuser!");
+									}
 								});
 							});
 							
