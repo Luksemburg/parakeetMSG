@@ -1,4 +1,4 @@
-package com.parakeet.msg.web;
+﻿package com.parakeet.msg.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,7 +25,13 @@ public class RightServe extends HttpServlet {
         	RenderMSG rend = (RenderMSG)session.getAttribute("r");
         	int to = rend.getChats().size();							
 			int line = ((AdapterDB)session.getAttribute("helper")).getUnread((String)session.getAttribute("login"), (String)session.getAttribute("client"));
+			
+			out.println("<head>");
+			out.println("<meta charset=\"utf-8\" />");
+			out.println("</head>");
 		
+			out.println("<body id=\"scroll\">");
+			
 			for(int i = 0; i < to; i++){								
 				
 				if(to - i == line){
@@ -43,8 +49,13 @@ public class RightServe extends HttpServlet {
 					out.println("</font></p>");
 				}			
 			}
+			
+			out.println("<script type=\"text/javascript\">");
+				out.println("document.getElementById('scroll').scrollIntoView();");
+			out.println("</script>");
+			
+			out.println("</body>");
         	
-        	//out.println("<p align=\"center\"><font color=\"Red\">------------------------------------------- Unanswered Messages -------------------------------------------</font></p>");
         } finally {
         	out.close();  
         }
