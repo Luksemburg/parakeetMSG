@@ -24,9 +24,17 @@ public class RightServe extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         try {
+        	String login = (String)session.getAttribute("login");
+        	String client = (String)session.getAttribute("client");
+        	
         	RenderMSG rend = (RenderMSG)session.getAttribute("r");
+        	AdapterDB helper = (AdapterDB)session.getAttribute("helper");
+        	
+        	rend.setLogins(helper.getLogins(login));
+        	rend.setChats(helper.readChat(login, client));
+        	
         	int to = rend.getChats().size();							
-			int line = ((AdapterDB)session.getAttribute("helper")).getUnread((String)session.getAttribute("login"), (String)session.getAttribute("client"));
+			int line = (helper).getUnread(login, client);
 			
 			out.println("<!DOCTYPE html>");
 			out.println("<head>");
