@@ -1,4 +1,4 @@
-﻿package com.parakeet.msg.web;
+package com.parakeet.msg.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
