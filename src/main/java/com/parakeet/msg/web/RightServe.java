@@ -49,11 +49,11 @@ public class RightServe extends HttpServlet {
 					out.println("<p align=\"left\"><font color=\"Black\">");
 				}			
 											
-				out.println("<br>" + rend.getChats().get(i).getMessage() + "</font></p><br>" + 
+				out.println("<br>" + rend.getChats().get(i).getMessage() + "<br>" + 
 									"<font color=\"Silver\" size=\"1\">" + rend.formatTime(rend.getChats().get(i).getDateTime() ) + "</font><br>");
 							
 				//if(rend.getLogins().indexOf(rend.getChats().get(i).getHost()) < 0){
-					//out.println("</font></p>");
+					out.println("</font></p>");
 				//}			
 			}
 			
