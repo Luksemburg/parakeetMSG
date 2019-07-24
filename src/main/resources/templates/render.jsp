@@ -172,7 +172,7 @@
 												//window.location = responseJson.redirect;
 												
 												$('#myAudio').get(0).play();	
-												$('#chat').load("right",  function () { GenerateData(); });
+												$('#chat').load("right" ,  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
 												
 												
 												//sessionStorage.temp = document.getElementById("msg33").value;
