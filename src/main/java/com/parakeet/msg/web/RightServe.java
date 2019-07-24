@@ -28,6 +28,7 @@ public class RightServe extends HttpServlet {
         	int to = rend.getChats().size();							
 			int line = ((AdapterDB)session.getAttribute("helper")).getUnread((String)session.getAttribute("login"), (String)session.getAttribute("client"));
 			
+			out.println("<!DOCTYPE html>");
 			out.println("<head>");
 			//out.println("<meta charset=\"utf-8\" />");
 			out.println("<script src=\"https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/js/jquery-3.4.1.min.js\"></script>");
@@ -56,7 +57,10 @@ public class RightServe extends HttpServlet {
 						
 			out.println("<script type=\"text/javascript\">");
 				out.println("$(document).ready(function(){");
-					out.println("document.getElementById('scroll').scrollIntoView();");
+					out.println("var html = document.documentElement;");
+					out.println("var body = document.body;");
+					out.println("var scrollTop = html.scrollTop || body && body.scrollTop || 0;");
+					out.println("scrollTop -= html.clientTop;");
 				out.println("});");	
 			out.println("</script>");
 			
