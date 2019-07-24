@@ -145,7 +145,7 @@
 
 					<script type="text/javascript" >
 					
-							var temp = "";
+							//	var temp = "";
 											 							
 							function fun() {
 															
@@ -179,7 +179,7 @@
 							$(document).ready(function(){
 								//document.getElementById("myAudio").play();
 								var m = document.getElementById("msg33");
-								m.value = temp;
+								m.value = sessionStorage.getItem("temp");
 								m.focus();
 								m.selectionStart = m.value.length;
 								
@@ -192,14 +192,16 @@
 									success: function(responseJson) {										
 										    if (responseJson.redirect) {
 												//window.location = responseJson.redirect;
-												temp = document.getElementById("msg33").value
-												$('#myAudio').get(0).play();												
+												
+												$('#myAudio').get(0).play();	
+												sessionStorage.temp = document.getElementById("msg33").value;
 												window.location.replace("controller");
+												
 												//var audio = document.getElementById("myAudio").play();
 												//let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
 												//audio.play();
 												
-												return;
+												return false;
 											}
 									},
 								/*	success:function(res){
