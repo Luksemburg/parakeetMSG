@@ -196,13 +196,14 @@
 									},*/
 									success:function(res){
 											//$('#chat').load("controller",  function () { GenerateData(); });
-											$('#chat').html(res);
+											$('#chat').html();
 											$('#companions').html(res);
-											let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
-											audio.play();
+											$('#myAudio').get(0).play();
+											//let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
+											//audio.play();
 											//window.location.replace("controller");	
 											//var audio = document.getElementById("myAudio").play();
-											return;
+											return false;
 										},
 									error: function(){
 											//alert("error searchuser!");
