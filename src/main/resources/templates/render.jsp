@@ -82,7 +82,7 @@
 					</div>
 						<!-- <input type="submit" value="Go!" name="find" /> --></p>
 						
-						<div style="overflow:auto; text-align:center" width="320" height="400px">
+						<div id="companions" style="overflow:auto; text-align:center" width="320" height="400px">
 							<%								
 								for(int i = 0; i < ((RenderMSG)request.getAttribute("r")).getLogins().size(); i++){
 									out.println("<form  accept-charset=\"utf-8\" method=\"POST\" action=\"setclient?client=" + ((RenderMSG)request.getAttribute("r")).getLogins().get(i) + "\">");
@@ -103,7 +103,7 @@
 									out.println("</form>");																	
 								}
 							%>	
-							</div>
+						</div>
 							</form>
 				</div>
 				
@@ -175,7 +175,7 @@
 							}							
 							
 							$(document).ready(function(){
-								document.getElementById("myAudio").play();
+								//document.getElementById("myAudio").play();
 								document.getElementById("msg33").focus();
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
@@ -196,7 +196,8 @@
 									},*/
 									success:function(res){
 											//$('#chat').load("controller",  function () { GenerateData(); });
-											$('#chat').html();
+											$('#chat').html(res);
+											$('#companions').html(res);
 											let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
 											audio.play();
 											//window.location.replace("controller");	
