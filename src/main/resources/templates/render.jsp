@@ -155,12 +155,14 @@
 									data:{"msg":document.getElementById("msg33").value},									
 																		
 									success: function(responseJson) {
-										
-										    if (responseJson.redirect) {
+										//$('chat')html(responseJson);
+										$('#chat').load(url,  function () { GenerateData(); });
+										 /*   if (responseJson.redirect) {
 												window.location = responseJson.redirect;
+												//$('chat')html(res);
 												document.getElementById("box").play();
 												return;
-											}
+											}*/
 									},
 									
 									error: function(){
@@ -257,7 +259,7 @@
 							
 							<td>
 								<div id="msg1" style="text-align:right" >	
-									<textarea name="msg" id="msg33" cols="90" rows="5"></textarea>				
+									<textarea name="msg" id="msg33" cols="90" rows="3"></textarea>				
 									<!--<p><input type="submit"  value="Send Message" /></p>--><br>
 									<button style="vertical-align:middle" id="sendmsg" name="sendmsg" value="sendmsg" onclick="fun();">
 										<img src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon.png" style="vertical-align:middle" width="30" height="30"/>	
