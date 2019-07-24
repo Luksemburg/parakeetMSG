@@ -120,7 +120,7 @@
 							for(int i = 0; i < to; i++){								
 								
 								if(to - i == line){
-									out.println("<p align=\"center\"><font color=\"Red\">--------------------------------------------------------------- Unanswered Messages ---------------------------------------------------------------</font></p>");
+									out.println("<p align=\"center\"><font color=\"Red\">------------------------------------------- Unanswered Messages -------------------------------------------</font></p>");
 								}
 								
 								if(((RenderMSG)request.getAttribute("r")).getLogins().indexOf(((RenderMSG)request.getAttribute("r")).getChats().get(i).getHost()) < 0){
@@ -175,7 +175,7 @@
 							}							
 							
 							$(document).ready(function(){
-								
+								document.getElementById("myAudio").play();
 								document.getElementById("msg33").focus();
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
@@ -183,7 +183,7 @@
 									type: 'POST',									
 									url: "daemoncall",
 									cache: false, 
-									success: function(responseJson) {										
+								/*	success: function(responseJson) {										
 										    if (responseJson.redirect) {
 												//window.location = responseJson.redirect;
 												window.location.replace("controller");
@@ -193,15 +193,15 @@
 												$("#myAudio").get(0).play();
 												return;
 											}
-									},
-									/*success:function(res){
-											$('#chat').load(res,  function () { GenerateData(); });
+									},*/
+									success:function(res){
+											$('#chat').load("controller",  function () { GenerateData(); });
 											let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
 											audio.play();
 											//window.location.replace("controller");	
 											//var audio = document.getElementById("myAudio").play();
 											return;
-										},*/
+										},
 									error: function(){
 											//alert("error searchuser!");
 									}
