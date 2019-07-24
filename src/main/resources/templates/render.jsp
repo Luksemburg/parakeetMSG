@@ -7,9 +7,9 @@
 	<head>
 		<meta charset="utf-8" />
         <title>Parakeet: Chats</title>	
-		<script src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/js/jquery-3.4.1.min.js"></script>
-		<audio id="myAudio" src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3"></audio>
-		<audio id="box" src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/box.mp3"></audio>
+		<script src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/js/jquery-3.4.1.min.js"></script>
+		<audio id="myAudio" src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3"></audio>
+		<audio id="box" src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/box.mp3"></audio>
 
 	</head>
 	
@@ -135,8 +135,7 @@
 												//window.location = responseJson.redirect;
 												
 												$('#chat').load("right",  function () { GenerateData(); });
-												var block = document.getElementById("chat");
-												block.scrollTop = block.scrollHeight;
+												
 												
 												//$('chat')html(res);
 												document.getElementById("box").play();
@@ -161,8 +160,7 @@
 								//m.selectionStart = m.value.length;
 								
 								$('#chat').load("right",  function () { GenerateData(); });
-								var block = document.getElementById("chat");
-								block.scrollTop = block.scrollHeight;	
+									
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
 								$.ajax({
@@ -175,8 +173,7 @@
 												
 												$('#myAudio').get(0).play();	
 												$('#chat').load("right",  function () { GenerateData(); });
-												var block = document.getElementById("chat");
-												block.scrollTop = block.scrollHeight;
+												
 												
 												//sessionStorage.temp = document.getElementById("msg33").value;
 												//window.location.replace("controller");												
@@ -243,7 +240,7 @@
 								});								
 							});
 							
-						/*	$(function(){
+							$(function(){
 								var input = document.getElementById("msg33");
 								// Execute a function when the user releases a key on the keyboard
 								input.addEventListener("keyup", function(event) {
@@ -255,7 +252,7 @@
 									document.getElementById("sendmsg").click();
 								  }
 								}); 							
-							});	*/
+							});	
 						
 					</script>
 					
