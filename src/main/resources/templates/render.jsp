@@ -155,16 +155,16 @@
 									data:{"msg":document.getElementById("msg33").value},									
 																		
 									success: function(responseJson) {
-										//$('chat')html(responseJson);
+									/*	$('chat')html(responseJson);
 										$('#chat').load(responseJson,  function () { GenerateData(); });
 										document.getElementById("box").play();
-										return;
-										 /*   if (responseJson.redirect) {
+										return;*/
+										    if (responseJson.redirect) {
 												window.location = responseJson.redirect;
 												//$('chat')html(res);
 												document.getElementById("box").play();
 												return;
-											}*/
+											}
 									},
 									
 									error: function(){
@@ -183,22 +183,24 @@
 									type: 'POST',									
 									url: "daemoncall",
 									cache: false, 
-								/*	success: function(responseJson) {										
+									success: function(responseJson) {										
 										    if (responseJson.redirect) {
 												//window.location = responseJson.redirect;
 												window.location.replace("controller");
-												var audio = document.getElementById("myAudio").play();
+												//var audio = document.getElementById("myAudio").play();
+												let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
+												audio.play();
 												return;
 											}
-									},*/
-									success:function(res){
+									},
+									/*success:function(res){
 											$('#chat').load(res,  function () { GenerateData(); });
 											let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
 											audio.play();
 											//window.location.replace("controller");	
 											//var audio = document.getElementById("myAudio").play();
 											return;
-										},
+										},*/
 									error: function(){
 											//alert("error searchuser!");
 									}
