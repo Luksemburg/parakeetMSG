@@ -6,12 +6,13 @@ import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.context.ApplicationContext;
 
 public class Processing implements Logic {
 	private static ApplicationContext contex;
-	private  String login;					//try to delete 'static'
+	private  String login;					
 	private  String pass;
 	
 	private HttpServletRequest request;
@@ -52,6 +53,9 @@ public class Processing implements Logic {
 				
 				if(lr != null) {
 					request.setAttribute("r", lr);
+					
+					HttpSession session = request.getSession();
+					session.setAttribute("r", lr);
 				}
 				
 				lr.render();	

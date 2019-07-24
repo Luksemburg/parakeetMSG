@@ -22,7 +22,8 @@ public class RightServe extends HttpServlet {
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         try {
-        /*	int to = ((RenderMSG)request.getAttribute("r")).getChats().size();							
+        	RenderMSG rend = (RenderMSG)session.getAttribute("r");
+        	int to = rend.getChats().size();							
 			int line = ((AdapterDB)session.getAttribute("helper")).getUnread((String)session.getAttribute("login"), (String)session.getAttribute("client"));
 		
 			for(int i = 0; i < to; i++){								
@@ -31,19 +32,19 @@ public class RightServe extends HttpServlet {
 					out.println("<p align=\"center\"><font color=\"Red\">------------------------------------------- Unanswered Messages -------------------------------------------</font></p>");
 				}
 				
-				if(((RenderMSG)request.getAttribute("r")).getLogins().indexOf(((RenderMSG)request.getAttribute("r")).getChats().get(i).getHost()) < 0){
+				if(rend.getLogins().indexOf(rend.getChats().get(i).getHost()) < 0){
 					out.println("<p align=\"right\"><font color=\"SteelBlue\">");
 				}			
 											
-				out.println("<br>" + ((RenderMSG)request.getAttribute("r")).getChats().get(i).getMessage() + "<br>" + 
-									"<font color=\"Silver\" size=\"1\">" + ((RenderMSG)request.getAttribute("r")).formatTime(((RenderMSG)request.getAttribute("r")).getChats().get(i).getDateTime() ) + "</font><br>");
+				out.println("<br>" + rend.getChats().get(i).getMessage() + "<br>" + 
+									"<font color=\"Silver\" size=\"1\">" + rend.formatTime(rend.getChats().get(i).getDateTime() ) + "</font><br>");
 							
-				if(((RenderMSG)request.getAttribute("r")).getLogins().indexOf(((RenderMSG)request.getAttribute("r")).getChats().get(i).getHost()) < 0){
+				if(rend.getLogins().indexOf(rend.getChats().get(i).getHost()) < 0){
 					out.println("</font></p>");
 				}			
-			}*/
+			}
         	
-        	out.println("<p align=\"center\"><font color=\"Red\">------------------------------------------- Unanswered Messages -------------------------------------------</font></p>");
+        	//out.println("<p align=\"center\"><font color=\"Red\">------------------------------------------- Unanswered Messages -------------------------------------------</font></p>");
         } finally {
         	out.close();  
         }
