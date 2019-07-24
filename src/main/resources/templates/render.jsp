@@ -181,7 +181,7 @@
 												//let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
 												//audio.play();
 												
-												return;
+												return false;
 											}
 									},
 								/*	success:function(res){
