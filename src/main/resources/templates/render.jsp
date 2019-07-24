@@ -159,7 +159,7 @@
 								m.focus();
 								//m.selectionStart = m.value.length;
 								
-								$('#chat').load("right");
+								$('#chat').load("right" ,  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
 									
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
@@ -254,10 +254,9 @@
 								}); 							
 							});	
 							
-							$(window).load(function() {
-							  $('#chat').animate({ scrollTop: $(document).height() }, 1000);
+							window.onload = function() {
 							  window.scrollTo(0,document.querySelector("chat").scrollHeight);
-							});
+							}
 						
 					</script>
 					
