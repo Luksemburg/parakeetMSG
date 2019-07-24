@@ -19,8 +19,9 @@ public class RightServe extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		response.setContentType("text/html");
+		//response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        response.setCharacterEncoding("utf-8");
         try {
         	RenderMSG rend = (RenderMSG)session.getAttribute("r");
         	int to = rend.getChats().size();							
@@ -50,10 +51,12 @@ public class RightServe extends HttpServlet {
 				}			
 			}
 			
-			out.println("<script type=\"text/javascript\">");
-				out.println("document.getElementById('scroll').scrollIntoView();");
-			out.println("</script>");
-			
+			out.println("$(document).ready(function(){");			
+				out.println("<script type=\"text/javascript\">");
+					out.println("document.getElementById('scroll').scrollIntoView();");
+				out.println("</script>");
+			out.println("});");
+				
 			out.println("</body>");
         	
         } finally {
