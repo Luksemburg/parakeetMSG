@@ -181,7 +181,7 @@
 							$(document).ready(function(){
 								//document.getElementById("myAudio").play();
 								var m = document.getElementById("msg33");
-								if(sessionStorage.getItem("temp").localeCompare("null") == 0){
+								if(sessionStorage.getItem("temp") != null){
 									m.value = sessionStorage.getItem("temp");									
 								}
 								m.focus();
@@ -194,7 +194,7 @@
 									url: "daemoncall",
 									cache: false, 
 									success: function(responseJson) {										
-										    //if (responseJson.redirect) {
+										    if (responseJson.redirect) {
 												//window.location = responseJson.redirect;
 												
 												$('#myAudio').get(0).play();	
@@ -206,7 +206,7 @@
 												//audio.play();
 												
 												return;
-											//}
+											}
 									},
 								/*	success:function(res){
 											//$('#chat').load("controller",  function () { GenerateData(); });
