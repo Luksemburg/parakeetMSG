@@ -19,7 +19,7 @@ public class RightServe extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		response.setContentType("text/plain");        
+		response.setContentType("text/html");        
         response.setCharacterEncoding("utf-8");
         PrintWriter out = response.getWriter();
         
