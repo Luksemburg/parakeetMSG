@@ -188,8 +188,9 @@
 												//window.location = responseJson.redirect;
 												window.location.replace("controller");
 												//var audio = document.getElementById("myAudio").play();
-												let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
-												audio.play();
+												//let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
+												//audio.play();
+												$("#myAudio").get(0).play();
 												return;
 											}
 									},
@@ -232,7 +233,21 @@
 								});								
 							});	
 							
+							
 							$(function(){
+								$('#msg33').keyup(function(event){
+								  var Value = $('#msg33').val();
+								  
+								  if (event.keyCode === 13) {
+									  fun();
+								  }
+								  
+								  return false;
+								  
+								});								
+							});
+							
+						/*	$(function(){
 								var input = document.getElementById("msg33");
 								// Execute a function when the user releases a key on the keyboard
 								input.addEventListener("keyup", function(event) {
@@ -244,7 +259,7 @@
 									document.getElementById("sendmsg").click();
 								  }
 								}); 							
-							});	
+							});	*/
 						
 					</script>
 					
