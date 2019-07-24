@@ -2,11 +2,6 @@
 <%@page import="com.parakeet.msg.web.AdapterDB"%>
 <%@page import="java.util.List"%>
 
-<%
-	//RenderMSG rend = ((RenderMSG)request.getAttribute("r"));
-	//int temp = -2;
-%>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,6 +11,9 @@
 		<audio id="myAudio" src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3"></audio>
 		<audio id="box" src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/box.mp3"></audio>
 		
+		<link rel="import" href="/right">
+		<link rel="import" href="/left">
+		<link rel="import" href="/searchpanel">
 	</head>
 	
 	<body>
@@ -111,9 +109,16 @@
 				
 				<td valign="top" bgcolor="Snow">			
 				
-					<div id="chat" style="overflow:auto;height: 400px;">	
-						<%
+					<div id="chat" style="overflow:auto;height: 400px;">
 						
+						    <script>
+							  var link = document.querySelector('link[rel=import]');
+							  var content = link.import.querySelector('#right-dm');
+							  document.body.appendChild(content.cloneNode(true));
+							</script>
+					
+						<%
+						/*
 							int to = ((RenderMSG)request.getAttribute("r")).getChats().size();							
 							int line = ((AdapterDB)session.getAttribute("helper")).getUnread((String)session.getAttribute("login"), (String)session.getAttribute("client"));
 						
@@ -127,11 +132,6 @@
 									out.println("<p align=\"right\"><font color=\"SteelBlue\">");
 								}
 								
-								/*out.println("<br> host: " + ((RenderMSG)request.getAttribute("r")).getChats().get(i).getHost() + " | client: " + 
-															((RenderMSG)request.getAttribute("r")).getChats().get(i).getClient() + " | data: " +
-															((RenderMSG)request.getAttribute("r")).getChats().get(i).getDateTime() + 
-											" || msg: " + ((RenderMSG)request.getAttribute("r")).getChats().get(i).getMessage() + "<br>");*/
-											
 								out.println("<br>" + ((RenderMSG)request.getAttribute("r")).getChats().get(i).getMessage() + "<br>" + 
 													"<font color=\"Silver\" size=\"1\">" + ((RenderMSG)request.getAttribute("r")).formatTime(((RenderMSG)request.getAttribute("r")).getChats().get(i).getDateTime() ) + "</font><br>");
 											
@@ -139,6 +139,7 @@
 									out.println("</font></p>");
 								}			
 							}
+						*/	
 						%>
 						<br><br>
 					</div>					
