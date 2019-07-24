@@ -83,7 +83,7 @@ public class WriterHead extends HttpServlet implements Sender {
 		session = request.getSession();			
 		
 		this.message = request.getParameter("msg");	
-		if(this.message != null && this.message != "\n") {
+		if(this.message != null && !this.message.equals("\n")) {
 			this.write();		
 		}
 		
