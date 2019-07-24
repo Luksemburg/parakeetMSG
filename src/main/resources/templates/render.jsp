@@ -144,6 +144,8 @@
 					</div>					
 
 					<script type="text/javascript" >
+					
+							var temp = "";
 											 							
 							function fun() {
 															
@@ -176,25 +178,31 @@
 							
 							$(document).ready(function(){
 								//document.getElementById("myAudio").play();
-								document.getElementById("msg33").focus();
+								var m = document.getElementById("msg33");
+								m.value = temp;
+								m.focus();
+								m.selectionStart = m.value.length;
+								
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
 								$.ajax({
 									type: 'POST',									
 									url: "daemoncall",
 									cache: false, 
-								/*	success: function(responseJson) {										
+									success: function(responseJson) {										
 										    if (responseJson.redirect) {
 												//window.location = responseJson.redirect;
+												temp = document.getElementById("msg33").value
+												$('#myAudio').get(0).play();												
 												window.location.replace("controller");
 												//var audio = document.getElementById("myAudio").play();
 												//let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
 												//audio.play();
-												$("#myAudio").get(0).play();
+												
 												return;
 											}
-									},*/
-									success:function(res){
+									},
+								/*	success:function(res){
 											//$('#chat').load("controller",  function () { GenerateData(); });
 											$('#chat').html();
 											$('#companions').html(res);
@@ -204,7 +212,7 @@
 											//window.location.replace("controller");	
 											//var audio = document.getElementById("myAudio").play();
 											return false;
-										},
+										},*/
 									error: function(){
 											//alert("error searchuser!");
 									}
