@@ -148,7 +148,9 @@
 							//	var temp = "";
 											 							
 							function fun() {
-															
+								
+								sessionStorage.temp = "";
+								
 								$.ajax({
 									async: false,
 									type: 'POST',
@@ -179,10 +181,12 @@
 							$(document).ready(function(){
 								//document.getElementById("myAudio").play();
 								var m = document.getElementById("msg33");
-								m.value = sessionStorage.getItem("temp");
+								if(sessionStorage.getItem("temp").localeCompare("null") == 0){
+									m.value = sessionStorage.getItem("temp");									
+								}
 								m.focus();
 								m.selectionStart = m.value.length;
-								
+									
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
 								$.ajax({
