@@ -19,16 +19,18 @@ public class RightServe extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		//response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+		response.setContentType("text/plain");        
         response.setCharacterEncoding("utf-8");
+        PrintWriter out = response.getWriter();
+        
         try {
         	RenderMSG rend = (RenderMSG)session.getAttribute("r");
         	int to = rend.getChats().size();							
 			int line = ((AdapterDB)session.getAttribute("helper")).getUnread((String)session.getAttribute("login"), (String)session.getAttribute("client"));
 			
 			out.println("<head>");
-			out.println("<meta charset=\"utf-8\" />");
+			//out.println("<meta charset=\"utf-8\" />");
+			out.println("<script src=\"https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/js/jquery-3.4.1.min.js\"></script>");
 			out.println("</head>");
 		
 			out.println("<body id=\"scroll\">");
