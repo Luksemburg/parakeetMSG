@@ -194,7 +194,7 @@
 									url: "daemoncall",
 									cache: false, 
 									success: function(responseJson) {										
-										    if (responseJson.redirect) {
+										    //if (responseJson.redirect) {
 												//window.location = responseJson.redirect;
 												
 												$('#myAudio').get(0).play();	
@@ -205,8 +205,8 @@
 												//let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
 												//audio.play();
 												
-												return false;
-											}
+												return;
+											//}
 									},
 								/*	success:function(res){
 											//$('#chat').load("controller",  function () { GenerateData(); });
