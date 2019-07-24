@@ -22,7 +22,7 @@ public class RightServe extends HttpServlet {
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         try {
-        	int to = ((RenderMSG)request.getAttribute("r")).getChats().size();							
+        /*	int to = ((RenderMSG)request.getAttribute("r")).getChats().size();							
 			int line = ((AdapterDB)session.getAttribute("helper")).getUnread((String)session.getAttribute("login"), (String)session.getAttribute("client"));
 		
 			for(int i = 0; i < to; i++){								
@@ -41,7 +41,9 @@ public class RightServe extends HttpServlet {
 				if(((RenderMSG)request.getAttribute("r")).getLogins().indexOf(((RenderMSG)request.getAttribute("r")).getChats().get(i).getHost()) < 0){
 					out.println("</font></p>");
 				}			
-			}
+			}*/
+        	
+        	out.println("<p align=\"center\"><font color=\"Red\">------------------------------------------- Unanswered Messages -------------------------------------------</font></p>");
         } finally {
         	out.close();  
         }
