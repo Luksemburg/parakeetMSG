@@ -165,7 +165,9 @@
 										document.getElementById("box").play();
 										return;*/
 										    if (responseJson.redirect) {
-												window.location = responseJson.redirect;
+												//window.location = responseJson.redirect;
+												$('#chat').load("right",  function () { GenerateData(); });
+												
 												//$('chat')html(res);
 												document.getElementById("box").play();
 												return;
@@ -187,6 +189,8 @@
 								}
 								m.focus();
 								m.selectionStart = m.value.length;
+								
+								$('#chat').load("right",  function () { GenerateData(); });
 									
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
