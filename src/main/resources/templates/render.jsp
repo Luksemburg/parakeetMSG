@@ -10,10 +10,7 @@
 		<script src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/js/jquery-3.4.1.min.js"></script>
 		<audio id="myAudio" src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3"></audio>
 		<audio id="box" src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/box.mp3"></audio>
-		
-		<link rel="import" href="/right">
-		<link rel="import" href="/left">
-		<link rel="import" href="/searchpanel">
+
 	</head>
 	
 	<body>
@@ -110,37 +107,7 @@
 				<td valign="top" bgcolor="Snow">			
 				
 					<div id="chat" style="overflow:auto;height: 400px;">
-						
-						    <script>
-							  var link = document.querySelector('link[rel=import]');
-							  var content = link.import.querySelector('#right-dm');
-							  document.body.appendChild(content.cloneNode(true));
-							</script>
-					
-						<%
-						/*
-							int to = ((RenderMSG)request.getAttribute("r")).getChats().size();							
-							int line = ((AdapterDB)session.getAttribute("helper")).getUnread((String)session.getAttribute("login"), (String)session.getAttribute("client"));
-						
-							for(int i = 0; i < to; i++){								
-								
-								if(to - i == line){
-									out.println("<p align=\"center\"><font color=\"Red\">------------------------------------------- Unanswered Messages -------------------------------------------</font></p>");
-								}
-								
-								if(((RenderMSG)request.getAttribute("r")).getLogins().indexOf(((RenderMSG)request.getAttribute("r")).getChats().get(i).getHost()) < 0){
-									out.println("<p align=\"right\"><font color=\"SteelBlue\">");
-								}
-								
-								out.println("<br>" + ((RenderMSG)request.getAttribute("r")).getChats().get(i).getMessage() + "<br>" + 
-													"<font color=\"Silver\" size=\"1\">" + ((RenderMSG)request.getAttribute("r")).formatTime(((RenderMSG)request.getAttribute("r")).getChats().get(i).getDateTime() ) + "</font><br>");
-											
-								if(((RenderMSG)request.getAttribute("r")).getLogins().indexOf(((RenderMSG)request.getAttribute("r")).getChats().get(i).getHost()) < 0){
-									out.println("</font></p>");
-								}			
-							}
-						*/	
-						%>
+
 						<br><br>
 					</div>					
 
@@ -150,7 +117,7 @@
 											 							
 							function fun() {
 								
-								sessionStorage.temp = "";
+								//sessionStorage.temp = "";
 								
 								$.ajax({
 									async: false,
@@ -166,7 +133,10 @@
 										return;*/
 										    if (responseJson.redirect) {
 												//window.location = responseJson.redirect;
+												
 												$('#chat').load("right",  function () { GenerateData(); });
+												var block = document.getElementById("chat");
+												block.scrollTop = block.scrollHeight;
 												
 												//$('chat')html(res);
 												document.getElementById("box").play();
@@ -184,14 +154,15 @@
 							$(document).ready(function(){
 								//document.getElementById("myAudio").play();
 								var m = document.getElementById("msg33");
-								if(sessionStorage.getItem("temp") != null){
-									m.value = sessionStorage.getItem("temp");									
-								}
+								//if(sessionStorage.getItem("temp") != null){
+								//	m.value = sessionStorage.getItem("temp");									
+								//}
 								m.focus();
-								m.selectionStart = m.value.length;
+								//m.selectionStart = m.value.length;
 								
 								$('#chat').load("right",  function () { GenerateData(); });
-									
+								var block = document.getElementById("chat");
+								block.scrollTop = block.scrollHeight;	
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
 								$.ajax({
@@ -203,9 +174,12 @@
 												//window.location = responseJson.redirect;
 												
 												$('#myAudio').get(0).play();	
-												sessionStorage.temp = document.getElementById("msg33").value;
-												window.location.replace("controller");
+												$('#chat').load("right",  function () { GenerateData(); });
+												var block = document.getElementById("chat");
+												block.scrollTop = block.scrollHeight;
 												
+												//sessionStorage.temp = document.getElementById("msg33").value;
+												//window.location.replace("controller");												
 												//var audio = document.getElementById("myAudio").play();
 												//let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
 												//audio.play();
