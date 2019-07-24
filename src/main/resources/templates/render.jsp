@@ -227,7 +227,7 @@
 							});	
 							
 							
-							$(function(){
+						/*	$(function(){
 								$('#msg33').keyup(function(event){
 								  var Value = $('#msg33').val();
 								  
@@ -238,7 +238,7 @@
 								  return false;
 								  
 								});								
-							});
+							});*/
 							
 							$(function(){
 								var input = document.getElementById("msg33");
