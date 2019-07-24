@@ -290,10 +290,10 @@
 		</table>
 		
 	<script type="text/javascript">
-		document.body.scrollTop = document.body.scrollHeight;
-		
+		/*document.body.scrollTop = document.body.scrollHeight;		
 		var block = document.getElementById("chat");
-		block.scrollTop = block.scrollHeight;
+		block.scrollTop = block.scrollHeight;*/
+		window.scrollTo(0,document.querySelector("chat").scrollHeight);
 	</script>
 	
 	<p align="center">by <a href="setclient?client=FooCo">FooCo</a></p>				
