@@ -253,6 +253,11 @@
 								  }
 								}); 							
 							});	
+							
+							$(window).load(function() {
+							  $('#chat').animate({ scrollTop: $(document).height() }, 1000);
+							  window.scrollTo(0,document.querySelector("chat").scrollHeight);
+							});
 						
 					</script>
 					
@@ -293,7 +298,7 @@
 		/*document.body.scrollTop = document.body.scrollHeight;		
 		var block = document.getElementById("chat");
 		block.scrollTop = block.scrollHeight;*/
-		window.scrollTo(0,document.querySelector("chat").scrollHeight);
+		//window.scrollTo(0,document.querySelector("chat").scrollHeight);
 	</script>
 	
 	<p align="center">by <a href="setclient?client=FooCo">FooCo</a></p>				
