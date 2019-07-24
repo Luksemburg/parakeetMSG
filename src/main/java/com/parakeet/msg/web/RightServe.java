@@ -42,25 +42,25 @@ public class RightServe extends HttpServlet {
 					out.println("<p align=\"center\"><font color=\"Red\">------------------------------------------- Unanswered Messages -------------------------------------------</font></p>");
 				}
 				
-				if(rend.getLogins().indexOf(rend.getChats().get(i).getHost()) < 0){
+				//if(rend.getLogins().indexOf(rend.getChats().get(i).getHost()) < 0){
+				if(rend.getChats().get(i).getHost().equals(session.getAttribute("login"))) {
 					out.println("<p align=\"right\"><font color=\"SteelBlue\">");
+				}else {
+					out.println("<p align=\"left\"><font color=\"Black\">");
 				}			
 											
-				out.println("<br>" + rend.getChats().get(i).getMessage() + "<br>" + 
+				out.println("<br>" + rend.getChats().get(i).getMessage() + "</font></p><br>" + 
 									"<font color=\"Silver\" size=\"1\">" + rend.formatTime(rend.getChats().get(i).getDateTime() ) + "</font><br>");
 							
-				if(rend.getLogins().indexOf(rend.getChats().get(i).getHost()) < 0){
-					out.println("</font></p>");
-				}			
+				//if(rend.getLogins().indexOf(rend.getChats().get(i).getHost()) < 0){
+					//out.println("</font></p>");
+				//}			
 			}
 			
 						
 			out.println("<script type=\"text/javascript\">");
 				out.println("$(document).ready(function(){");
-					out.println("var html = document.documentElement;");
-					out.println("var body = document.body;");
-					out.println("var scrollTop = html.scrollTop || body && body.scrollTop || 0;");
-					out.println("scrollTop -= html.clientTop;");
+					out.println("window.scrollTo(0,document.body.scrollHeight);");
 				out.println("});");	
 			out.println("</script>");
 			
