@@ -157,6 +157,7 @@
 									success: function(responseJson) {
 										//$('chat')html(responseJson);
 										$('#chat').load(url,  function () { GenerateData(); });
+										document.getElementById("box").play();
 										 /*   if (responseJson.redirect) {
 												window.location = responseJson.redirect;
 												//$('chat')html(res);
@@ -190,7 +191,10 @@
 											}
 									},*/
 									success:function(res){
-											window.location.replace("controller");	
+											$('#chat').load(url,  function () { GenerateData(); });
+											let audio = new Audio('https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3');
+											audio.play();
+											//window.location.replace("controller");	
 											//var audio = document.getElementById("myAudio").play();
 											return;
 										},
