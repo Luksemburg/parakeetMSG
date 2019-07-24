@@ -53,11 +53,13 @@ public class RightServe extends HttpServlet {
 				}			
 			}
 			
-			out.println("$(document).ready(function(){");			
-				out.println("<script type=\"text/javascript\">");
+						
+			out.println("<script type=\"text/javascript\">");
+				out.println("$(document).ready(function(){");
 					out.println("document.getElementById('scroll').scrollIntoView();");
-				out.println("</script>");
-			out.println("});");
+				out.println("});");	
+			out.println("</script>");
+			
 				
 			out.println("</body>");
         	
