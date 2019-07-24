@@ -159,7 +159,7 @@
 								m.focus();
 								//m.selectionStart = m.value.length;
 								
-								$('#chat').load("right",  function () { GenerateData(); });
+								$('#chat').load("right");
 									
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
