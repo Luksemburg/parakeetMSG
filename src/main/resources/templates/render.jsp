@@ -194,7 +194,7 @@
 							});	
 							
 							
-						/*	$(function(){
+							$(function(){
 								$('#msg33').keyup(function(event){
 								  var Value = $('#msg33').val();
 								  
@@ -205,7 +205,7 @@
 								  return false;
 								  
 								});								
-							});*/
+							});
 							
 						/*	$(function(){
 								var input = document.getElementById("msg33");
@@ -227,7 +227,7 @@
 						
 					</script>
 					
-					<form name="myform" id="myform" action="fun();" method="POST" accept-charset="utf-8">						
+					<form name="myform" id="myform" method="POST" accept-charset="utf-8">						
 						
 						<table>							
 							<td  valign="top">
