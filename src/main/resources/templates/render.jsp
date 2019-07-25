@@ -58,7 +58,7 @@
 					<p style="text-align:center; "><input accept-charset="utf-8" type="search" size="50" name="search" id="search" placeholder="Find User... Press 'Enter' to search" value="${patt}" />
 					<div id="results" style="text-align:center; " name="drop" id="drop" >
 						<%
-							if(session.getAttribute("searchList") != null){
+						/*	if(session.getAttribute("searchList") != null){
 								List<String> list = (List<String>)session.getAttribute("searchList");
 								for(int i = 0; i < list.size(); i++){									
 									out.println("<form accept-charset=\"utf-8\" method=\"POST\" action=\"setclient?client=" + list.get(i) + "\">");
@@ -69,35 +69,15 @@
 										out.println("</font></button>");
 									out.println("</form>");	
 								}
-							}
-							
-							//session.setAttribute("patt", null);
+							}						
+							*/
 						%>	
 						
 					</div>
 						<!-- <input type="submit" value="Go!" name="find" /> --></p>
 						
 						<div id="companions" style="overflow:auto; text-align:center" width="320" height="400px">
-							<%								
-							/*	for(int i = 0; i < ((RenderMSG)request.getAttribute("r")).getLogins().size(); i++){
-									out.println("<form  accept-charset=\"utf-8\" method=\"POST\" action=\"setclient?client=" + ((RenderMSG)request.getAttribute("r")).getLogins().get(i) + "\">");
-										out.println("<div style=\"text-align:center\">");
-										out.println("<a href=\"getava/" + ((RenderMSG)request.getAttribute("r")).getLogins().get(i) + "\" target=\"_blank\" >");
-											out.println("<img src=\"getava/" + ((RenderMSG)request.getAttribute("r")).getLogins().get(i) + "\" width=\"41\" height=\"41\" style=\"vertical-align:top; \" alt=\"[ava]\" /></a>");	
-											
-											out.println("<button style=\"width:290px\"><font color=\"LimeGreen\" size=\"6\">");													
-											out.println(((RenderMSG)request.getAttribute("r")).getLogins().get(i)); 
-
-												int temp = ((AdapterDB)session.getAttribute("helper")).getUnread((String)session.getAttribute("login"), ((RenderMSG)request.getAttribute("r")).getLogins().get(i));
-												if(temp > 0){	
-													out.println("<font color=\"Red\"> +"	+ temp);
-												}
-												
-											out.println("</font></font></button>");
-										out.println("</div>");
-									out.println("</form>");																	
-								}
-						*/	%>	
+							
 						</div>
 							</form>
 				</div>
@@ -212,7 +192,8 @@
 										
 										cache: false, 
 										success:function(res){
-											window.location.replace("controller");											
+											//window.location.replace("controller");
+											$('#results').load("left",  function () { GenerateData(); });
 										},
 										
 										error: function(){
