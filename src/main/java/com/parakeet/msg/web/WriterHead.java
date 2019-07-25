@@ -82,9 +82,14 @@ public class WriterHead extends HttpServlet implements Sender {
 			
 		session = request.getSession();			
 		
-		this.message = request.getParameter("msg");	
-		if(this.message != null && !this.message.equals("\n")) {
-			this.write();		
+		this.message = request.getParameter("msg");
+		
+		if(this.message != null && !this.message.equals("")) {
+			if(chat.isMsgHealthy(this.message)) {
+				this.message = chat.enterInsertSpaceDelete(this.message);	
+				
+					this.write();		
+				}
 		}
 		
 		String redirectURL = "controller";		

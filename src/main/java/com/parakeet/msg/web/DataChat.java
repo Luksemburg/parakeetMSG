@@ -51,4 +51,45 @@ public class DataChat implements Chat {
 	public Timestamp getDateTime() {
 		return time;
 	}
+	
+	@Override
+	public boolean isMsgHealthy(String msg) {
+		char[] testing = msg.toCharArray();
+		for(int i = 0; i < testing.length; i++) {
+			if(!Character.isWhitespace(testing[i])) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	@Override
+	public String enterInsertSpaceDelete(String msg) {
+		String res = "";
+		
+		char[] testing = msg.toCharArray();
+		
+		if(testing.length == 1) {
+			if(Character.isWhitespace(testing[0])) {
+				return null;
+			}else {
+				res += testing[0];
+				return res;
+			}
+		}
+		
+		for(int i = 1; i < testing.length; i++) {
+			
+			if(!Character.isWhitespace(testing[i - 1]) || !Character.isWhitespace(testing[i])) {
+				res += testing[i];
+			}
+			
+			if(i % 90 == 0) {
+				res += "\n";
+			}
+		}
+		
+		return res;
+	}
 }

@@ -13,4 +13,7 @@ public interface Chat {
 	String getClient();
 	String getMessage();
 	Timestamp getDateTime();
+	
+	boolean isMsgHealthy(String msg);
+	String enterInsertSpaceDelete(String msg);
 }
