@@ -39,7 +39,7 @@ public class AdapterDB implements DBHelper {
 			
 			Connection connect = DriverManager.getConnection(url, user, pass);
 			Statement st = connect.createStatement();
-			ResultSet rs = st.executeQuery("SELECT pass FROM logins WHERE name = '" + login + "'");
+			ResultSet rs = st.executeQuery("SELECT pass FROM logins WHERE name LIKE '" + login + "'");
 			
 			while(rs.next()) {
 				res = rs.getString(1);	

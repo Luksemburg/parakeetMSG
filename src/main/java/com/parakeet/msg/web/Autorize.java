@@ -19,7 +19,7 @@ public class Autorize implements Authentication {
 
 	public boolean isNew(String login, List<String> logins) {
 		for(int i = 0; i < logins.size(); i++) {
-			if(login.equalsIgnoreCase(logins.get(i))) {
+			if(login.equals(logins.get(i))) {
 				return false;
 			}
 		}
