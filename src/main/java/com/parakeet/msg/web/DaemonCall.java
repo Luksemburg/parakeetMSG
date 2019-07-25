@@ -18,7 +18,7 @@ public class DaemonCall extends HttpServlet implements DaemonFace{
 
 	private static final long serialVersionUID = 6101475872035338824L;
 	private static ApplicationContext contex;	
-	private static DBHelper helper;
+	private DBHelper helper;
 	private  LoginRenderer render;
 	private HttpServletRequest request;
 	private HttpServletResponse response;

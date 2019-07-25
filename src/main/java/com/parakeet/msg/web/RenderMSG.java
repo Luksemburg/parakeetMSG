@@ -27,8 +27,8 @@ public class RenderMSG extends HttpServlet implements LoginRenderer {
 	private  List<Chat> chats;
 	private  HttpServletRequest request;
 	private  HttpServletResponse response;
-	private static DBHelper helper;
-	private static ApplicationContext contex;
+	private  DBHelper helper;
+	private  ApplicationContext contex;
 	
 	
 	
