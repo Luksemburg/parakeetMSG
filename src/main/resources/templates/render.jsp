@@ -56,7 +56,7 @@
 				<div style="overflow:auto; height: 400px;" width="320" >
 				
 					<p style="text-align:center; "><input accept-charset="utf-8" type="search" size="50" name="search" id="search" placeholder="Find User... Press 'Enter' to search" value="${patt}" />
-					<div style="text-align:center; " name="drop" id="drop" >
+					<div id="results" style="text-align:center; " name="drop" id="drop" >
 						<%
 							if(session.getAttribute("searchList") != null){
 								List<String> list = (List<String>)session.getAttribute("searchList");
@@ -79,7 +79,7 @@
 						
 						<div id="companions" style="overflow:auto; text-align:center" width="320" height="400px">
 							<%								
-								for(int i = 0; i < ((RenderMSG)request.getAttribute("r")).getLogins().size(); i++){
+							/*	for(int i = 0; i < ((RenderMSG)request.getAttribute("r")).getLogins().size(); i++){
 									out.println("<form  accept-charset=\"utf-8\" method=\"POST\" action=\"setclient?client=" + ((RenderMSG)request.getAttribute("r")).getLogins().get(i) + "\">");
 										out.println("<div style=\"text-align:center\">");
 										out.println("<a href=\"getava/" + ((RenderMSG)request.getAttribute("r")).getLogins().get(i) + "\" target=\"_blank\" >");
@@ -97,7 +97,7 @@
 										out.println("</div>");
 									out.println("</form>");																	
 								}
-							%>	
+						*/	%>	
 						</div>
 							</form>
 				</div>
@@ -135,7 +135,7 @@
 												//window.location = responseJson.redirect;
 												
 												$('#chat').load("right",  function () { GenerateData(); });
-												
+												$('#companions').load("left",  function () { GenerateData(); });
 												
 												//$('chat')html(res);
 												document.getElementById("box").play();
@@ -160,7 +160,7 @@
 								//m.selectionStart = m.value.length;
 								
 								$('#chat').load("right" ,  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
-									
+								$('#companions').load("left",  function () { GenerateData(); });	
 								//document.getElementById("search").selectionStart = document.getElementById("search").value.length;
 																
 								$.ajax({
@@ -173,7 +173,7 @@
 												
 												$('#myAudio').get(0).play();	
 												$('#chat').load("right" ,  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
-												
+												$('#companions').load("left",  function () { GenerateData(); });
 												
 												//sessionStorage.temp = document.getElementById("msg33").value;
 												//window.location.replace("controller");												
