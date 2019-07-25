@@ -85,9 +85,11 @@ public class Controller extends HttpServlet {
 			Statement st = connect.createStatement();
 			ResultSet rs = st.executeQuery("SELECT name FROM logins WHERE name ILIKE '" + login + "'");
 			
-			while(rs.next()) {
+			if(rs.next()) {
 				res = rs.getString(1);	
 				//log.info("RESULT SET: " + rs.getString(1));
+			}else {
+				res = login;
 			}
 			
 			rs.close();
