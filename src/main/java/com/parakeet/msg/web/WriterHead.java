@@ -86,8 +86,7 @@ public class WriterHead extends HttpServlet implements Sender {
 		
 		if(this.message != null && !this.message.equals("")) {
 			if(chat.isMsgHealthy(this.message)) {
-				this.message = chat.enterInsertSpaceDelete(this.message);	
-				
+				this.message = chat.enterInsertSpaceDelete(this.message);					
 					this.write();		
 				}
 		}

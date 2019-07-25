@@ -74,7 +74,8 @@ public class DataChat implements Chat {
 			if(Character.isWhitespace(testing[0])) {
 				return null;
 			}else {
-				res += testing[0];
+				log.info("" + testing[0]);
+				res = String.valueOf(testing[0]);
 				return res;
 			}
 		}
@@ -82,10 +83,11 @@ public class DataChat implements Chat {
 		for(int i = 1; i < testing.length; i++) {
 			
 			if(!Character.isWhitespace(testing[i - 1]) || !Character.isWhitespace(testing[i])) {
+				log.info("" + testing[i]);
 				res += testing[i];
 			}
 			
-			if(i % 90 == 0) {
+			if(i % 80 == 0) {
 				res += "\n";
 			}
 		}
