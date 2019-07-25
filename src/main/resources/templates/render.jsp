@@ -100,12 +100,13 @@
 										    if (responseJson.redirect) {
 												//window.location = responseJson.redirect;
 												
-												$('#chat').load("right",  function () { GenerateData(); });
+												$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
 												$('#companions').load("left",  function () { GenerateData(); });
 												
+												document.getElementById("msg33").value = "";
 												//$('chat')html(res);
 												document.getElementById("box").play();
-												return;
+												return false;
 											}
 									},
 									
@@ -200,10 +201,9 @@
 								  
 								  if (event.keyCode === 13) {
 									  fun();
-								  }
-								  
-								  return false;
-								  
+								  }						  
+								  								  
+								  return false;								  
 								});								
 							});
 							
