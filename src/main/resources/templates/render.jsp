@@ -101,7 +101,7 @@
 												//window.location = responseJson.redirect;
 												
 												$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
-												$('#companions').load("left",  function () { GenerateData(); });
+												$('#companions').load("left");
 												
 												document.getElementById("msg33").value = "";
 												//$('chat')html(res);
@@ -195,7 +195,7 @@
 							});	
 							
 							
-							$(function(){
+						/*	$(function(){
 								$('#msg33').keyup(function(event){
 								  var Value = $('#msg33').val();
 								  
@@ -205,9 +205,9 @@
 								  								  
 								  return;								  
 								});								
-							});
+							});*/
 							
-						/*	$(function(){
+							$(function(){
 								var input = document.getElementById("msg33");
 								// Execute a function when the user releases a key on the keyboard
 								input.addEventListener("keyup", function(event) {
@@ -219,7 +219,7 @@
 									document.getElementById("sendmsg").click();
 								  }
 								}); 							
-							});	*/
+							});	
 							
 							window.onload = function() {
 							  window.scrollTo(0,document.querySelector("chat").scrollHeight);
