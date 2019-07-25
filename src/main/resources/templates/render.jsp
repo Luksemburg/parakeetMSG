@@ -57,22 +57,7 @@
 				
 					<p style="text-align:center; "><input accept-charset="utf-8" type="search" size="50" name="search" id="search" placeholder="Find User... Press 'Enter' to search" value="${patt}" />
 					<div id="results" style="text-align:center; " name="drop" id="drop" >
-						<%
-						/*	if(session.getAttribute("searchList") != null){
-								List<String> list = (List<String>)session.getAttribute("searchList");
-								for(int i = 0; i < list.size(); i++){									
-									out.println("<form accept-charset=\"utf-8\" method=\"POST\" action=\"setclient?client=" + list.get(i) + "\">");
-									out.println("<a  href=\"getava/" + list.get(i) + "\" target=\"_blank\" >");
-										out.println("<img src=\"getava/" + list.get(i) + "\" style=\"vertical-align:top\" width=\"41\" height=\"41\" alt=\"[ava]\" /></a>");
-										out.println("<button style=\"width:290px; \"><font color=\"Yellow\" size=\"6\">");										
-										out.println(list.get(i));
-										out.println("</font></button>");
-									out.println("</form>");	
-								}
-							}						
-							*/
-						%>	
-						
+											
 					</div>
 						<!-- <input type="submit" value="Go!" name="find" /> --></p>
 						
@@ -193,7 +178,7 @@
 										cache: false, 
 										success:function(res){
 											//window.location.replace("controller");
-											$('#results').load("left",  function () { GenerateData(); });
+											$('#results').load("find",  function () { GenerateData(); });
 										},
 										
 										error: function(){
