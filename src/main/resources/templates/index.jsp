@@ -5,7 +5,7 @@
 -->
 <html>
 	<head>
-		<link rel="shortcut icon" href="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/123.png" type="image/png">
+		<link rel="shortcut icon" href="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/123.ico" type="image/x-icon">
 		<title>
 			Welcome to Parakeet MSG!
 		</title>
