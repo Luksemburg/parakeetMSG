@@ -29,7 +29,7 @@ public class WriterHead extends HttpServlet implements Sender {
 	HttpSession session;
 	private String message;	
 	private Chat chat = new DataChat();
-	private DBHelper helper;	
+	private static DBHelper helper;	
 	
 	private final static String empty = "";
 	
