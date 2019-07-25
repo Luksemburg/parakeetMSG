@@ -207,7 +207,7 @@
 								});								
 							});*/
 							
-							$(function(){
+						/*	$(function(){
 								var input = document.getElementById("msg33");
 								// Execute a function when the user releases a key on the keyboard
 								input.addEventListener("keyup", function(event) {
@@ -219,7 +219,7 @@
 									document.getElementById("sendmsg").click();
 								  }
 								}); 							
-							});	
+							});	*/
 							
 							window.onload = function() {
 							  window.scrollTo(0,document.querySelector("chat").scrollHeight);
@@ -227,7 +227,7 @@
 						
 					</script>
 					
-					<form name="myform" id="myform" method="POST" accept-charset="utf-8">						
+					<form name="myform" id="myform" action="fun();" method="POST" accept-charset="utf-8">						
 						
 						<table>							
 							<td  valign="top">
