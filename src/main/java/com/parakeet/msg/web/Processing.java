@@ -11,13 +11,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.context.ApplicationContext;
 
 public class Processing implements Logic {
-	private static ApplicationContext contex;
+	private ApplicationContext contex;
 	private  String login;					
 	private  String pass;
 	
 	private HttpServletRequest request;
 	private HttpServletResponse response;
-	private static String client;
+	private String client;
 	
 	private final static Logger log = Logger.getLogger(Processing.class.getName());
 	
