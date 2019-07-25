@@ -6,6 +6,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<link rel="shortcut icon" href="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/123.ico" type="image/x-icon">
         <title>Parakeet: Chats</title>	
 		<script src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/js/jquery-3.4.1.min.js"></script>
 		<audio id="myAudio" src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3"></audio>
