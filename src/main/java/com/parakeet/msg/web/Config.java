@@ -2,9 +2,12 @@ package com.parakeet.msg.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @Configuration
 public class Config {
+	
+	@ExceptionHandler(ExceptionHandling.class)
 	
 	@Bean
 	public Authentication authent() {
