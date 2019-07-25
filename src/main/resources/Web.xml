@@ -12,7 +12,7 @@
   
   <error-page>
     <exception-type>java.lang.Throwable</exception-type>
-    <location>/classes/templates/error.jsp</location>
+    <location>WEB-INF/classes/templates/error.jsp</location>
   </error-page>
   
 </web-app>
