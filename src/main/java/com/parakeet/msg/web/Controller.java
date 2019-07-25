@@ -46,7 +46,7 @@ public class Controller extends HttpServlet {
 			}
 		}
 		
-		log.info("/controller " + session.getAttribute("login"));
+		//log.info("/controller " + session.getAttribute("login"));
 		
 		ApplicationContext contex = new AnnotationConfigApplicationContext(Config.class);
 		
