@@ -238,7 +238,8 @@
 										if(session.getAttribute("client") != null){
 											out.println("<font size=\"5\" color=\"SteelBlue\">" + (String)session.getAttribute("client") + "</font>"); 
 										}else{
-											out.println("<font size=\"5\" color=\"SteelBlue\">Private Notes</font>");
+											//out.println("<font size=\"5\" color=\"SteelBlue\">Private Notes</font>");
+											out.println("<script>document.getElementById(/"msg33/").disabled = true;</script>");
 										}
 									%>
 							</td>
