@@ -239,7 +239,8 @@
 											out.println("<font size=\"5\" color=\"SteelBlue\">" + (String)session.getAttribute("client") + "</font>"); 
 										}else{
 											//out.println("<font size=\"5\" color=\"SteelBlue\">Private Notes</font>");
-											out.println("<script>window.location.replace(\"setclient?client=\" + (String)session.getAttribute(\"login\"));</script>");
+											//out.println("<script> window.location.replace(\"setclient?client=" + (String)session.getAttribute("login") + ");</script>");
+											out.println("<font size=\"5\" color=\"SteelBlue\">" + (String)session.getAttribute("login") + "</font>"); 
 										}
 									%>
 							</td>
