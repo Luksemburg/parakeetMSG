@@ -232,14 +232,14 @@
 						<table>							
 							<td  valign="top">
 								<a href="${pageContext.request.contextPath}/getava/${client}" target="_blank">
-									<img align="left" src="${pageContext.request.contextPath}/getava/${client}" style="padding-right:10px " width="100" height="100"	alt="[client ava]" /><br>
+									<img id="avka" align="left" src="${pageContext.request.contextPath}/getava/${client}" style="padding-right:10px " width="100" height="100"	alt="[client ava]" /><br>
 								</a>	
 									<% 	
 										if(session.getAttribute("client") != null){
 											out.println("<font size=\"5\" color=\"SteelBlue\">" + (String)session.getAttribute("client") + "</font>"); 
 										}else{
 											//out.println("<font size=\"5\" color=\"SteelBlue\">Private Notes</font>");
-											out.println("<script> window.location.replace(\"setclient?client=" + (String)session.getAttribute("login") + \" + ");</script>");
+											//out.println("<script> window.location.replace(\"setclient?client=" + (String)session.getAttribute("login") + \" + ");</script>");
 											//out.println("<font size=\"5\" color=\"SteelBlue\">" + (String)session.getAttribute("login") + "</font>"); 
 										}
 									%>
@@ -253,7 +253,17 @@
 										<img src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon.png" style="vertical-align:middle" width="30" height="30"/>	
 										<font color="LimeGreen" size="5">Send Message!</font>
 									</button>
-								</div>	 
+								</div>	
+
+								<%
+									if(session.getAttribute("client") == null){
+										out.println("<script> document.getElementById(\"sendmsg\").disabled = true; </script>");
+										out.println("<script> document.getElementById(\"myform\").disabled = true; </script>");
+										out.println("<script> document.getElementById(\"avka\").disabled = true; </script>");
+										out.println("<script> document.getElementById(\"msg33\").disabled = true; </script>");
+									}
+								%>
+								
 							</td>	
 						</table>	
 					</form>					
