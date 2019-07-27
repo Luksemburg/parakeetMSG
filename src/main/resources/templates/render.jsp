@@ -237,10 +237,6 @@
 									<% 	
 										if(session.getAttribute("client") != null){
 											out.println("<font size=\"5\" color=\"SteelBlue\">" + (String)session.getAttribute("client") + "</font>"); 
-										}else{
-											//out.println("<font size=\"5\" color=\"SteelBlue\">Private Notes</font>");
-											//out.println("<script> window.location.replace(\"setclient?client=" + (String)session.getAttribute("login") + \" + ");</script>");
-											//out.println("<font size=\"5\" color=\"SteelBlue\">" + (String)session.getAttribute("login") + "</font>"); 
 										}
 									%>
 							</td>
@@ -259,7 +255,7 @@
 									if(session.getAttribute("client") == null){
 										out.println("<script> document.getElementById(\"sendmsg\").disabled = true; </script>");
 										out.println("<script> document.getElementById(\"myform\").disabled = true; </script>");
-										out.println("<script> document.getElementById(\"avka\").disabled = true; </script>");
+										out.println("<script> document.getElementById(\"avka\").style.visibility = 'hidden'; </script>");
 										out.println("<script> document.getElementById(\"msg33\").disabled = true; </script>");
 									}
 								%>
