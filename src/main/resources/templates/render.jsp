@@ -239,7 +239,7 @@
 											out.println("<font size=\"5\" color=\"SteelBlue\">" + (String)session.getAttribute("client") + "</font>"); 
 										}else{
 											//out.println("<font size=\"5\" color=\"SteelBlue\">Private Notes</font>");
-											out.println("<script>document.getElementById(/"msg33/").disabled = true;</script>");
+											out.println("<script>document.getElementById(/"msg33/").disabled = true; document.getElementById(/"sendmsg/").disabled = true;</script>");
 										}
 									%>
 							</td>
