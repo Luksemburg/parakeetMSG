@@ -52,8 +52,8 @@ public class WriterHead extends HttpServlet implements Sender {
 		if(client != null) {
 			this.chat.setClient(client);	
 		}else {
-			session.setAttribute("client", "My Private Notes");
-			this.chat.setClient("My Private Notes");
+			session.setAttribute("client", login);
+			this.chat.setClient(login);
 		}
 		
 		java.util.Date date= new java.util.Date();       		

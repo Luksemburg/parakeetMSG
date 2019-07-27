@@ -23,8 +23,13 @@ public class SetClient extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-		HttpSession session = request.getSession();					
-		session.setAttribute("client", request.getParameter("client"));		
+		HttpSession session = request.getSession();
+		
+		if(((AdapterDB) session.getAttribute("helper")).getLogins().contains(request.getParameter("client"))) {
+			session.setAttribute("client", request.getParameter("client"));
+		}else {
+			session.setAttribute("client", session.getAttribute("login"));
+		}
 		
 		request.getRequestDispatcher("/controller").forward(request, response);				
 	}
