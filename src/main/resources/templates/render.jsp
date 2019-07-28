@@ -11,6 +11,7 @@
 		<script src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/js/jquery-3.4.1.min.js"></script>
 		<audio id="myAudio" src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/02031.mp3"></audio>
 		<audio id="box" src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/box.mp3"></audio>
+		<audio id="page" src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/sound/page.mp3"></audio>
 
 	</head>
 	
@@ -80,6 +81,26 @@
 					<script type="text/javascript" >
 					
 							//	var temp = "";
+							
+							function read() {
+								$.ajax({
+									async: false,
+									type: 'POST',
+									url: "read",
+									
+									success: function(responseJson) {
+										$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
+										$('#companions').load("left");
+										
+										document.getElementById("page").play();
+										return false;
+									},
+									
+									error: function(){
+										alert("error read!");
+									}
+								});
+							}
 											 							
 							function fun() {
 								
@@ -245,6 +266,9 @@
 								<div id="msg1" style="text-align:right" >	
 									<textarea name="msg" id="msg33" cols="90" rows="3"></textarea>				
 									<!--<p><input type="submit"  value="Send Message" /></p>--><br>
+									<button style="vertical-align:middle" id="read" name="read" value="read" onclick="read();">											
+										<font color="Yellow" size="5">Read</font>
+									</button>
 									<button style="vertical-align:middle" id="sendmsg" name="sendmsg" value="sendmsg" onclick="fun();">
 										<img src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon.png" style="vertical-align:middle" width="30" height="30"/>	
 										<font color="LimeGreen" size="5">Send Message!</font>
