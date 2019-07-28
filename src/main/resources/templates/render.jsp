@@ -83,7 +83,7 @@
 							//	var temp = "";
 							
 							function readMsg() {
-								alert("read!");
+								//alert("read!");
 								
 								$.ajax({
 									//async: false,
@@ -91,7 +91,7 @@
 									url: "read",
 									data:{"empty":"empty"},
 									success: function() {
-										alert("zbs read!");
+										//alert("zbs read!");
 										document.getElementById("page").play();
 										$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
 										$('#results').load("find",  function () { GenerateData(); });
