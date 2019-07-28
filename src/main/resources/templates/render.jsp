@@ -92,10 +92,10 @@
 										alert("zbs read!");
 										document.getElementById("page").play();
 										$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
-										$('#companions').load("left");	
-										$('#results').load("find");
+										$('#results').load("find",  function () { GenerateData(); });
+										$('#companions').load("left");											
 										
-										return false;
+										//return false;
 									},
 									
 									error: function(){
@@ -124,8 +124,9 @@
 												//window.location = responseJson.redirect;
 												
 												$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
+												$('#results').load("find",  function () { GenerateData(); });
 												$('#companions').load("left");
-												$('#results').load("find");
+												
 												
 												document.getElementById("msg33").value = "";
 												//$('chat')html(res);
@@ -270,7 +271,7 @@
 									<textarea name="msg" id="msg33" cols="90" rows="3"></textarea>				
 									<!--<p><input type="submit"  value="Send Message" /></p>--><br>
 									
-									<button style="vertical-align:middle" id="read" name="read" value="read" onclick="read();">											
+									<button style="vertical-align:middle" id="read" name="read" value="read" ">											
 										<font color="Yellow" size="5">Read</font>
 										<img src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon_yellow.png" style="vertical-align:middle" width="30" height="30"/>
 									</button>
