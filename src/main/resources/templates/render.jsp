@@ -84,10 +84,10 @@
 							
 							function read() {
 								$.ajax({
-									async: false,
+									//async: false,
 									type: 'POST',
 									url: "read",
-									
+									data:{"empty":"empty"},
 									success: function(responseJson) {
 										document.getElementById("page").play();
 										$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
