@@ -1,6 +1,7 @@
 package com.parakeet.msg.web;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
 public class ReadServe extends HttpServlet {
 
 	private static final long serialVersionUID = -8449943618556927643L;
+	private final static Logger log = Logger.getLogger(ReadServe.class.getName());
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,7 +22,11 @@ public class ReadServe extends HttpServlet {
 		
 		AdapterDB helper = (AdapterDB) session.getAttribute("helper");
 		String login = (String)session.getAttribute("login");
-    	String client = (String)session.getAttribute("client");		
+    	String client = (String)session.getAttribute("client");	
+    	
+    	log.info("Login: :" + login);
+    	log.info("Client: :" + client);
+    	log.info("Helper: :" + helper);
 
 		helper.toZero(login, client);
 		
