@@ -89,10 +89,10 @@
 									url: "read",
 									
 									success: function(responseJson) {
-										$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
-										$('#companions').load("left");
-										
 										document.getElementById("page").play();
+										$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
+										$('#companions').load("left");										
+										
 										return false;
 									},
 									
@@ -266,9 +266,11 @@
 								<div id="msg1" style="text-align:right" >	
 									<textarea name="msg" id="msg33" cols="90" rows="3"></textarea>				
 									<!--<p><input type="submit"  value="Send Message" /></p>--><br>
+									
 									<button style="vertical-align:middle" id="read" name="read" value="read" onclick="read();">											
 										<font color="Yellow" size="5">Read</font>
 									</button>
+									
 									<button style="vertical-align:middle" id="sendmsg" name="sendmsg" value="sendmsg" onclick="fun();">
 										<img src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon.png" style="vertical-align:middle" width="30" height="30"/>	
 										<font color="LimeGreen" size="5">Send Message!</font>
@@ -281,6 +283,7 @@
 										out.println("<script> document.getElementById(\"myform\").disabled = true; </script>");
 										out.println("<script> document.getElementById(\"avka\").style.visibility = 'hidden'; </script>");
 										out.println("<script> document.getElementById(\"msg33\").disabled = true; </script>");
+										out.println("<script> document.getElementById(\"read\").disabled = true; </script>");
 									}
 								%>
 								
