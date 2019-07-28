@@ -88,10 +88,11 @@
 									type: 'POST',
 									url: "read",
 									data:{"empty":"empty"},
-									success: function(responseJson) {
+									success: function() {
 										document.getElementById("page").play();
 										$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
-										$('#companions').load("left");										
+										$('#companions').load("left");	
+										$('#results').load("find");
 										
 										return false;
 									},
@@ -123,6 +124,7 @@
 												
 												$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
 												$('#companions').load("left");
+												$('#results').load("find");
 												
 												document.getElementById("msg33").value = "";
 												//$('chat')html(res);
@@ -269,10 +271,11 @@
 									
 									<button style="vertical-align:middle" id="read" name="read" value="read" onclick="read();">											
 										<font color="Yellow" size="5">Read</font>
+										<img src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon_yellow.png" style="vertical-align:middle" width="30" height="30"/>
 									</button>
 									
 									<button style="vertical-align:middle" id="sendmsg" name="sendmsg" value="sendmsg" onclick="fun();">
-										<img src=" https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon.png" style="vertical-align:middle" width="30" height="30"/>	
+										<img src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon.png" style="vertical-align:middle" width="30" height="30"/>	
 										<font color="LimeGreen" size="5">Send Message!</font>
 									</button>
 								</div>	
