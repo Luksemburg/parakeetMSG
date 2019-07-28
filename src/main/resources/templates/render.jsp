@@ -83,6 +83,8 @@
 							//	var temp = "";
 							
 							function read() {
+								alert("read!");
+								
 								$.ajax({
 									//async: false,
 									type: 'POST',
