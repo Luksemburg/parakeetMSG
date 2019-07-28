@@ -20,9 +20,15 @@ public class ReadServe extends HttpServlet {
 		
 		AdapterDB helper = (AdapterDB) session.getAttribute("helper");
 		String login = (String)session.getAttribute("login");
-    	String client = (String)session.getAttribute("client");
-		
+    	String client = (String)session.getAttribute("client");		
+
 		helper.toZero(login, client);
+		
+		try {
+			response.getWriter().write(0);
+		} catch (IOException e1) {			
+			e1.printStackTrace();
+		}	
 	}
 
 }
