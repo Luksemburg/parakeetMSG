@@ -24,9 +24,9 @@ public class ReadServe extends HttpServlet {
 		String login = (String)session.getAttribute("login");
     	String client = (String)session.getAttribute("client");	
     	
-    	log.info("Login: :" + login);
-    	log.info("Client: :" + client);
-    	log.info("Helper: :" + helper);
+    	//log.info("Login: :" + login);
+    	//log.info("Client: :" + client);
+    	//log.info("Helper: :" + helper);
 
 		helper.toZero(login, client);
 		
