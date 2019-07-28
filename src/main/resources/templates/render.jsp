@@ -89,6 +89,7 @@
 									url: "read",
 									data:{"empty":"empty"},
 									success: function() {
+										alert("zbs read!");
 										document.getElementById("page").play();
 										$('#chat').load("right",  function () { $('#chat').scrollTop($('#chat')[0].scrollHeight); });
 										$('#companions').load("left");	
