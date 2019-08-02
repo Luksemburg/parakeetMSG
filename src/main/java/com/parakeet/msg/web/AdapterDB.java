@@ -462,9 +462,9 @@ public class AdapterDB implements DBHelper {
 			ResultSet rs = st.executeQuery("SELECT DISTINCT name FROM logins");
 			
 			while(rs.next()) {
-				String temp = (rs.getString(1)).toLowerCase();
+				String temp = rs.getString(1);
 				
-				if(!pattern.equals("") && temp.contains(pattern.toLowerCase())) {
+				if(!pattern.equals("") && temp.toLowerCase().contains(pattern.toLowerCase())) {
 					res.add(temp);
 				}
 			}			
