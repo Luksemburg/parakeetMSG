@@ -93,11 +93,10 @@ public class DataChat implements Chat {
 		}*/	
 		
 		for(int i = 0; i < testing.length; i++) {	
-			if(i % 80 == 0 && i != 0) {
+			res += testing[i];			
+			if(i % 70 == 0 && i != 0) {
 				res += "\n";
-			}
-			
-			res += testing[i];
+			}			
 		}
 		
 		return res;
