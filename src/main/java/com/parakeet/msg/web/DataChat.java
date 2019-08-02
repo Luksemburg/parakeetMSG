@@ -70,7 +70,7 @@ public class DataChat implements Chat {
 		
 		char[] testing = msg.toCharArray();
 		
-		if(testing.length == 1) {
+	/*	if(testing.length == 1) {
 			if(Character.isWhitespace(testing[0])) {
 				return null;
 			}else {
@@ -78,9 +78,9 @@ public class DataChat implements Chat {
 				res = String.valueOf(testing[0]);
 				return res;
 			}
-		}
+		}*/
 		
-		for(int i = 1; i < testing.length; i++) {
+		/*for(int i = 1; i <= testing.length; i++) {
 			
 			if(!Character.isWhitespace(testing[i - 1]) || !Character.isWhitespace(testing[i])) {
 				//log.info("i = " + i + "; val = " + testing[i]);
@@ -90,6 +90,14 @@ public class DataChat implements Chat {
 			if(i % 80 == 0) {
 				res += "\n";
 			}
+		}*/	
+		
+		for(int i = 0; i < testing.length; i++) {	
+			if(i % 80 == 0) {
+				res += "\n";
+			}
+			
+			res += testing[i];
 		}
 		
 		return res;
