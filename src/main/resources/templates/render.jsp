@@ -276,7 +276,7 @@
 									<!--<p><input type="submit"  value="Send Message" /></p>--><br>
 									
 									<button style="vertical-align:middle" type="button" id="read" name="read" value="read" onclick="readMsg();">											
-										<font color="Yellow" size="5">Read</font>
+										<font color="Yellow" size="5">Not Answer</font>
 										<img src="https://cloud-cube-eu.s3.amazonaws.com/t5j0m088t0ur/public/img/icon_yellow.png" style="vertical-align:middle" width="30" height="30"/>
 									</button>
 									
